@@ -20,7 +20,12 @@ namespace Registro_de_internacao
 
         private void FrmRegistroDeInternacao_Load(object sender, EventArgs e)
         {
-            dtpDataEntrada.Value = null;
+
+        }
+
+        private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }
