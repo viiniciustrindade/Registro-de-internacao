@@ -17,6 +17,21 @@ namespace Registro_de_internacao
             InitializeComponent();
             
         }
+        public void AbrirSelecaoPaciente()
+        { 
+            SelecionarPaciente paciente = new SelecionarPaciente();
+            paciente.ShowDialog();
+            if (string.IsNullOrEmpty(paciente.nome) || string.IsNullOrWhiteSpace(paciente.nome))
+            {
+                lblNomePaciente.Visible = false;
+            }
+            else
+            {
+                txtCodPaciente.Text = paciente.codigo;
+                lblNomePaciente.Text = $"Nome: {paciente.nome}, Mãe: {paciente.nomeDaMae}, Idade: {paciente.idadeOf} anos";
+                lblNomePaciente.Visible = true;
+            }
+        }
 
         private void FrmRegistroDeInternacao_Load(object sender, EventArgs e)
         {
@@ -26,6 +41,11 @@ namespace Registro_de_internacao
         private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void btnCarregarLocal_Click(object sender, EventArgs e)
+        {
+            AbrirSelecaoPaciente();
         }
     }
 }
