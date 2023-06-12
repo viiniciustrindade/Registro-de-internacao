@@ -16,7 +16,7 @@ namespace Registro_de_internacao
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new btnExcluir());
+            Application.Run(new FrmRegistroDeInternacao());
         }
     }
 }

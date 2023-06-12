@@ -13,6 +13,7 @@ namespace Registro_de_internacao
     public class InternacaoModel
     {
         [Key()]
+        public string codInternacao { get; set; }
         public string prontuario { get; set; }
         public string dataEntrada { get; set; }
         public string horaEntrada { get; set; }
@@ -31,6 +32,6 @@ namespace Registro_de_internacao
         [ForeignKey("mvtHospCadPac")]
         [Column("codPaciente")]
         public string pacienteId { get; set; }
-        public virtual PacienteModel LocalModel { get; set; }
+        public virtual PacienteModel PacienteModel { get; set; }
     }
 }

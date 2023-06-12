@@ -61,9 +61,28 @@
             this.label16 = new System.Windows.Forms.Label();
             this.cbxSituacao = new System.Windows.Forms.ComboBox();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.btnCarregarLocal = new System.Windows.Forms.Button();
             this.lblNomePaciente = new System.Windows.Forms.Label();
+            this.dadosGrid = new System.Windows.Forms.DataGridView();
+            this.colCodPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProntuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDataEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHoraEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCodInterncao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCns = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDataSaida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHoraSaida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMedico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCRM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colClinicaMedica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCentroDeCusto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLocalizacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLeito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHipoteseDiagnostica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDiagnostico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -180,7 +199,7 @@
             this.dtpHoraSaida.Size = new System.Drawing.Size(73, 20);
             this.dtpHoraSaida.TabIndex = 13;
             this.dtpHoraSaida.Value = new System.DateTime(2023, 6, 15, 0, 0, 0, 0);
-            this.dtpHoraSaida.ValueChanged += new System.EventHandler(this.dateTimePicker3_ValueChanged);
+            //this.dtpHoraSaida.ValueChanged += new System.EventHandler(this.dateTimePicker3_ValueChanged);
             // 
             // label7
             // 
@@ -349,15 +368,17 @@
             this.btnSalvar.TabIndex = 33;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // button2
+            // btnExcluir
             // 
-            this.button2.Location = new System.Drawing.Point(399, 221);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 21);
-            this.button2.TabIndex = 34;
-            this.button2.Text = "Excluir";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnExcluir.Location = new System.Drawing.Point(399, 221);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 21);
+            this.btnExcluir.TabIndex = 34;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnCarregarLocal
             // 
@@ -382,13 +403,182 @@
             this.lblNomePaciente.Text = "Nome";
             this.lblNomePaciente.Visible = false;
             // 
-            // btnExcluir
+            // dadosGrid
+            // 
+            this.dadosGrid.AllowUserToAddRows = false;
+            this.dadosGrid.AllowUserToDeleteRows = false;
+            this.dadosGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dadosGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dadosGrid.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dadosGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dadosGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colCodPaciente,
+            this.colProntuario,
+            this.colDataEntrada,
+            this.colHoraEntrada,
+            this.colCodInterncao,
+            this.colCns,
+            this.colDataSaida,
+            this.colHoraSaida,
+            this.colMedico,
+            this.colCRM,
+            this.colClinicaMedica,
+            this.colCentroDeCusto,
+            this.colLocalizacao,
+            this.colLeito,
+            this.colHipoteseDiagnostica,
+            this.colDiagnostico,
+            this.colSituacao});
+            this.dadosGrid.Location = new System.Drawing.Point(12, 248);
+            this.dadosGrid.Name = "dadosGrid";
+            this.dadosGrid.ReadOnly = true;
+            this.dadosGrid.RowHeadersWidth = 51;
+            this.dadosGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dadosGrid.Size = new System.Drawing.Size(587, 225);
+            this.dadosGrid.TabIndex = 36;
+            this.dadosGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dadosGrid_CellDoubleClick);
+            // 
+            // colCodPaciente
+            // 
+            this.colCodPaciente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colCodPaciente.FillWeight = 152.2843F;
+            this.colCodPaciente.HeaderText = "Código paciente";
+            this.colCodPaciente.MinimumWidth = 6;
+            this.colCodPaciente.Name = "colCodPaciente";
+            this.colCodPaciente.ReadOnly = true;
+            // 
+            // colProntuario
+            // 
+            this.colProntuario.HeaderText = "Prontuário";
+            this.colProntuario.MinimumWidth = 6;
+            this.colProntuario.Name = "colProntuario";
+            this.colProntuario.ReadOnly = true;
+            // 
+            // colDataEntrada
+            // 
+            this.colDataEntrada.HeaderText = "Data entrada";
+            this.colDataEntrada.MinimumWidth = 6;
+            this.colDataEntrada.Name = "colDataEntrada";
+            this.colDataEntrada.ReadOnly = true;
+            // 
+            // colHoraEntrada
+            // 
+            this.colHoraEntrada.HeaderText = "Hora Entrada";
+            this.colHoraEntrada.MinimumWidth = 6;
+            this.colHoraEntrada.Name = "colHoraEntrada";
+            this.colHoraEntrada.ReadOnly = true;
+            this.colHoraEntrada.Visible = false;
+            // 
+            // colCodInterncao
+            // 
+            this.colCodInterncao.HeaderText = "Código internação";
+            this.colCodInterncao.Name = "colCodInterncao";
+            this.colCodInterncao.ReadOnly = true;
+            // 
+            // colCns
+            // 
+            this.colCns.HeaderText = "Cns";
+            this.colCns.Name = "colCns";
+            this.colCns.ReadOnly = true;
+            this.colCns.Visible = false;
+            // 
+            // colDataSaida
+            // 
+            this.colDataSaida.HeaderText = "Data saida";
+            this.colDataSaida.MinimumWidth = 6;
+            this.colDataSaida.Name = "colDataSaida";
+            this.colDataSaida.ReadOnly = true;
+            // 
+            // colHoraSaida
+            // 
+            this.colHoraSaida.HeaderText = "Hora saida";
+            this.colHoraSaida.MinimumWidth = 6;
+            this.colHoraSaida.Name = "colHoraSaida";
+            this.colHoraSaida.ReadOnly = true;
+            this.colHoraSaida.Visible = false;
+            // 
+            // colMedico
+            // 
+            this.colMedico.HeaderText = "Medico";
+            this.colMedico.MinimumWidth = 6;
+            this.colMedico.Name = "colMedico";
+            this.colMedico.ReadOnly = true;
+            this.colMedico.Visible = false;
+            // 
+            // colCRM
+            // 
+            this.colCRM.HeaderText = "CRM";
+            this.colCRM.MinimumWidth = 6;
+            this.colCRM.Name = "colCRM";
+            this.colCRM.ReadOnly = true;
+            this.colCRM.Visible = false;
+            // 
+            // colClinicaMedica
+            // 
+            this.colClinicaMedica.HeaderText = "Clinica médica";
+            this.colClinicaMedica.MinimumWidth = 6;
+            this.colClinicaMedica.Name = "colClinicaMedica";
+            this.colClinicaMedica.ReadOnly = true;
+            this.colClinicaMedica.Visible = false;
+            // 
+            // colCentroDeCusto
+            // 
+            this.colCentroDeCusto.HeaderText = "Centro de custo";
+            this.colCentroDeCusto.MinimumWidth = 6;
+            this.colCentroDeCusto.Name = "colCentroDeCusto";
+            this.colCentroDeCusto.ReadOnly = true;
+            this.colCentroDeCusto.Visible = false;
+            // 
+            // colLocalizacao
+            // 
+            this.colLocalizacao.HeaderText = "Localização";
+            this.colLocalizacao.MinimumWidth = 6;
+            this.colLocalizacao.Name = "colLocalizacao";
+            this.colLocalizacao.ReadOnly = true;
+            this.colLocalizacao.Visible = false;
+            // 
+            // colLeito
+            // 
+            this.colLeito.HeaderText = "Leito";
+            this.colLeito.MinimumWidth = 6;
+            this.colLeito.Name = "colLeito";
+            this.colLeito.ReadOnly = true;
+            this.colLeito.Visible = false;
+            // 
+            // colHipoteseDiagnostica
+            // 
+            this.colHipoteseDiagnostica.HeaderText = "Hipotese diagnóstica";
+            this.colHipoteseDiagnostica.MinimumWidth = 6;
+            this.colHipoteseDiagnostica.Name = "colHipoteseDiagnostica";
+            this.colHipoteseDiagnostica.ReadOnly = true;
+            this.colHipoteseDiagnostica.Visible = false;
+            // 
+            // colDiagnostico
+            // 
+            this.colDiagnostico.HeaderText = "Diagnostico";
+            this.colDiagnostico.MinimumWidth = 6;
+            this.colDiagnostico.Name = "colDiagnostico";
+            this.colDiagnostico.ReadOnly = true;
+            this.colDiagnostico.Visible = false;
+            // 
+            // colSituacao
+            // 
+            this.colSituacao.HeaderText = "Situação";
+            this.colSituacao.MinimumWidth = 6;
+            this.colSituacao.Name = "colSituacao";
+            this.colSituacao.ReadOnly = true;
+            this.colSituacao.Visible = false;
+            // 
+            // FrmRegistroDeInternacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(611, 485);
+            this.Controls.Add(this.dadosGrid);
             this.Controls.Add(this.lblNomePaciente);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnCarregarLocal);
             this.Controls.Add(this.cbxSituacao);
@@ -423,9 +613,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCodPaciente);
             this.Controls.Add(this.label1);
-            this.Name = "btnExcluir";
+            this.Name = "FrmRegistroDeInternacao";
             this.Text = "Registro de Internação";
             this.Load += new System.EventHandler(this.FrmRegistroDeInternacao_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -467,8 +658,26 @@
         private System.Windows.Forms.ComboBox cbxSituacao;
         private System.Windows.Forms.Button btnCarregarLocal;
         private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Label lblNomePaciente;
+        private System.Windows.Forms.DataGridView dadosGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodPaciente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProntuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDataEntrada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHoraEntrada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodInterncao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCns;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDataSaida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHoraSaida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMedico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCRM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colClinicaMedica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCentroDeCusto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLocalizacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLeito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHipoteseDiagnostica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDiagnostico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSituacao;
     }
 }
 
