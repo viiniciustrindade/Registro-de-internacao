@@ -33,6 +33,12 @@ namespace Registro_de_internacao
                 lblNomePaciente.Visible = true;
             }
         }
+        public void AbrirSelecaoCentroCusto()
+        {
+            BuscarCentroCusto centro = new BuscarCentroCusto();
+            centro.ShowDialog();
+            txtCentroCusto.Text = centro.nomeCentroCusto;
+        }
         private void CarregarUsuariosGrid()
         {
             dadosGrid.Rows.Clear();
@@ -249,6 +255,11 @@ namespace Registro_de_internacao
             txtHipoteseDiagnostica.Text = dadosGrid.Rows[e.RowIndex].Cells[colHipoteseDiagnostica.Index].Value + "";
             txtDiagnostico.Text = dadosGrid.Rows[e.RowIndex].Cells[colDiagnostico.Index].Value + "";
             cbxSituacao.Text = dadosGrid.Rows[e.RowIndex].Cells[colSituacao.Index].Value + "";
+        }
+
+        private void btnCarregarCentroCusto_Click(object sender, EventArgs e)
+        {
+            AbrirSelecaoCentroCusto();
         }
     }
 }

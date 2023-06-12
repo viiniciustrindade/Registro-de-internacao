@@ -33,5 +33,10 @@ namespace Registro_de_internacao
         [Column("codPaciente")]
         public string pacienteId { get; set; }
         public virtual PacienteModel PacienteModel { get; set; }
+
+        [ForeignKey("mvtCadCentroCusto")]
+        [Column("codCentroCusto")]
+        public string centroCustoId { get; set; }
+        public virtual CentroCustoModel CentroCustoModel { get; set; }
     }
 }

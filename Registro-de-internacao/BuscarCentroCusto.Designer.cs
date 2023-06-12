@@ -1,0 +1,145 @@
+﻿namespace Registro_de_internacao
+{
+    partial class BuscarCentroCusto
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.txtCodCentroCusto = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtCentroDeCusto = new System.Windows.Forms.TextBox();
+            this.txtNomeAutor = new System.Windows.Forms.Label();
+            this.dadosGrid = new System.Windows.Forms.DataGridView();
+            this.colCodigoCentroCusto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNomeCentroCusto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // txtCodCentroCusto
+            // 
+            this.txtCodCentroCusto.Location = new System.Drawing.Point(117, 10);
+            this.txtCodCentroCusto.Name = "txtCodCentroCusto";
+            this.txtCodCentroCusto.Size = new System.Drawing.Size(63, 22);
+            this.txtCodCentroCusto.TabIndex = 42;
+            this.txtCodCentroCusto.TextChanged += new System.EventHandler(this.txtCodCentroCusto_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 16);
+            this.label1.TabIndex = 41;
+            this.label1.Text = "Código";
+            // 
+            // txtCentroDeCusto
+            // 
+            this.txtCentroDeCusto.Location = new System.Drawing.Point(117, 38);
+            this.txtCentroDeCusto.Name = "txtCentroDeCusto";
+            this.txtCentroDeCusto.Size = new System.Drawing.Size(259, 22);
+            this.txtCentroDeCusto.TabIndex = 40;
+            this.txtCentroDeCusto.TextChanged += new System.EventHandler(this.txtCentroDeCusto_TextChanged);
+            // 
+            // txtNomeAutor
+            // 
+            this.txtNomeAutor.AutoSize = true;
+            this.txtNomeAutor.Location = new System.Drawing.Point(11, 41);
+            this.txtNomeAutor.Name = "txtNomeAutor";
+            this.txtNomeAutor.Size = new System.Drawing.Size(100, 16);
+            this.txtNomeAutor.TabIndex = 39;
+            this.txtNomeAutor.Text = "Centro de custo";
+            // 
+            // dadosGrid
+            // 
+            this.dadosGrid.AllowUserToAddRows = false;
+            this.dadosGrid.AllowUserToDeleteRows = false;
+            this.dadosGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dadosGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dadosGrid.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dadosGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dadosGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colCodigoCentroCusto,
+            this.colNomeCentroCusto});
+            this.dadosGrid.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dadosGrid.Location = new System.Drawing.Point(14, 66);
+            this.dadosGrid.Name = "dadosGrid";
+            this.dadosGrid.ReadOnly = true;
+            this.dadosGrid.RowHeadersWidth = 51;
+            this.dadosGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dadosGrid.Size = new System.Drawing.Size(571, 262);
+            this.dadosGrid.TabIndex = 38;
+            this.dadosGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dadosGrid_CellDoubleClick);
+            // 
+            // colCodigoCentroCusto
+            // 
+            this.colCodigoCentroCusto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colCodigoCentroCusto.FillWeight = 152.2843F;
+            this.colCodigoCentroCusto.HeaderText = "Código";
+            this.colCodigoCentroCusto.MinimumWidth = 6;
+            this.colCodigoCentroCusto.Name = "colCodigoCentroCusto";
+            this.colCodigoCentroCusto.ReadOnly = true;
+            this.colCodigoCentroCusto.Width = 80;
+            // 
+            // colNomeCentroCusto
+            // 
+            this.colNomeCentroCusto.FillWeight = 73.85786F;
+            this.colNomeCentroCusto.HeaderText = "Centro de custo";
+            this.colNomeCentroCusto.MinimumWidth = 6;
+            this.colNomeCentroCusto.Name = "colNomeCentroCusto";
+            this.colNomeCentroCusto.ReadOnly = true;
+            // 
+            // BuscarCentroCusto
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(597, 338);
+            this.Controls.Add(this.txtCodCentroCusto);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtCentroDeCusto);
+            this.Controls.Add(this.txtNomeAutor);
+            this.Controls.Add(this.dadosGrid);
+            this.Name = "BuscarCentroCusto";
+            this.Text = "Selecionar Centro de Custo";
+            this.Load += new System.EventHandler(this.BuscarCentroCusto_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TextBox txtCodCentroCusto;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtCentroDeCusto;
+        private System.Windows.Forms.Label txtNomeAutor;
+        private System.Windows.Forms.DataGridView dadosGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodigoCentroCusto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNomeCentroCusto;
+    }
+}

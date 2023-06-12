@@ -47,6 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuscarCentroCusto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarCentroCusto.Designer.cs">
+      <DependentUpon>BuscarCentroCusto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CentroCustoDAO.cs" />
+    <Compile Include="CentroCustoModel.cs" />
     <Compile Include="DaoConnection.cs" />
     <Compile Include="FrmRegistroDeInternacao.cs">
       <SubType>Form</SubType>
@@ -66,6 +74,9 @@
     <Compile Include="SelecionarPaciente.Designer.cs">
       <DependentUpon>SelecionarPaciente.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BuscarCentroCusto.resx">
+      <DependentUpon>BuscarCentroCusto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistroDeInternacao.resx">
       <DependentUpon>FrmRegistroDeInternacao.cs</DependentUpon>
     </EmbeddedResource>
