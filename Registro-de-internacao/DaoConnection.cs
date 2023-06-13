@@ -11,7 +11,7 @@ namespace Registro_de_internacao
     {
         public static SqlConnection GetConexao()
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=PROG\SQLEXPRESS;Initial Catalog=Hospital;Integrated Security=True;MultipleActiveResultSets=true;");
+            SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Hospital;Integrated Security=True;MultipleActiveResultSets=true;");
             connection.Open();
 
             return connection;

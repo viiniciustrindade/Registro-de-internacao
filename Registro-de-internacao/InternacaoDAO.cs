@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,12 +24,11 @@ namespace Registro_de_internacao
                 try
                 {
                     StringBuilder sql = new StringBuilder();
-                    sql.AppendLine($"INSERT INTO mvtHospRegInt(codPaciente, prontuario, dataEntrada, horaEntrada, dataSaida, horaSaidade, CNS, clinicaMedica, localizacao, leito, centroDeCusto," +
-                        $"hipoteseDiagnostica, medico, CRM, diagnostico, situacao) VALUES(@codPaciente, @prontuario, @dataEntrada, @horaEntrada, @dataSaida, @horaSaidade, @CNS, @clinicaMedica, @localizacao, @leito, @centroDeCusto," +
+                    sql.AppendLine($"INSERT INTO mvtHospRegInt(codPaciente, dataEntrada, horaEntrada, dataSaida, horaSaidade, CNS, clinicaMedica, localizacao, leito, centroDeCusto," +
+                        $"hipoteseDiagnostica, medico, CRM, diagnostico, situacao) VALUES(@codPaciente, @dataEntrada, @horaEntrada, @dataSaida, @horaSaidade, @CNS, @clinicaMedica, @localizacao, @leito, @centroDeCusto," +
                         $"@hipoteseDiagnostica, @medico, @CRM, @diagnostico, @situacao)");
                     command.CommandText = sql.ToString();
                     command.Parameters.Add(new SqlParameter("@codPaciente", paciente.codPaciente));
-                    command.Parameters.Add(new SqlParameter("@prontuario", internacao.prontuario));
                     command.Parameters.Add(new SqlParameter("@dataEntrada", internacao.dataEntrada));
                     command.Parameters.Add(new SqlParameter("@horaEntrada", internacao.horaEntrada));
                     command.Parameters.Add(new SqlParameter("@dataSaida", internacao.dataSaida));
@@ -63,12 +63,12 @@ namespace Registro_de_internacao
                 try
                 {
                     StringBuilder sql = new StringBuilder();
-                    sql.AppendLine($"UPDATE SET mvtHospRegInt codPaciente = @codPaciente, prontuario = @prontuario, dataEntrada = @dataEntrada, horaEntrada = @horaEntrada, dataSaida = @dataSaida," +
+                    sql.AppendLine($"UPDATE mvtHospRegInt SET codPaciente = @codPaciente, dataEntrada = @dataEntrada, horaEntrada = @horaEntrada, dataSaida = @dataSaida," +
                         $" horaSaidade = @horaSaidade, CNS = @CNS, clinicaMedica = @clinicaMedica, localizacao = @localizacao, leito = @leito, centroDeCusto = @centroDeCusto," +
-                        $"hipoteseDiagnostica = @hipoteseDiagnostica, medico = @medico, CRM = @CRM, diagnostico = @diagnostico, situacao = @situacao WHERE codPaciente = @codPaciente");
-
+                        $"hipoteseDiagnostica = @hipoteseDiagnostica, medico = @medico, CRM = @CRM, diagnostico = @diagnostico, situacao = @situacao WHERE codProntuario = @codProntuario");
+                    command.CommandText = sql.ToString();
+                    command.Parameters.AddWithValue("@codProntuario", internacao.prontuario);
                     command.Parameters.Add(new SqlParameter("@codPaciente", paciente.codPaciente));
-                    command.Parameters.Add(new SqlParameter("@prontuario", internacao.prontuario));
                     command.Parameters.Add(new SqlParameter("@dataEntrada", internacao.dataEntrada));
                     command.Parameters.Add(new SqlParameter("@horaEntrada", internacao.horaEntrada));
                     command.Parameters.Add(new SqlParameter("@dataSaida", internacao.dataSaida));
@@ -144,19 +144,19 @@ namespace Registro_de_internacao
             }
             return true;
         }
-        public int VerificaRegistros(PacienteModel paciente)
+        public int VerificaRegistros(InternacaoModel internacao)
         {
             using (SqlCommand command = Connection.CreateCommand())
             {
                 StringBuilder sql = new StringBuilder();
-                sql.AppendLine($"SELECT COUNT(codPaciente) FROM mvtHospRegInt WHERE codPaciente = @codPaciente");
+                sql.AppendLine($"SELECT COUNT(codProntuario) FROM mvtHospRegInt WHERE codProntuario = @codProntuario");
                 command.CommandText = sql.ToString();
-                command.Parameters.AddWithValue("@codPaciente", paciente.codPaciente);
+                command.Parameters.AddWithValue("@codProntuario", internacao.prontuario);
                 int count = Convert.ToInt32(command.ExecuteScalar());
                 return count;
             }
         }
-        public void Excluir(PacienteModel paciente, SqlTransaction t = null)
+        public void Excluir(InternacaoModel internacao, SqlTransaction t = null)
         {
             using (SqlCommand command = Connection.CreateCommand())
             {
@@ -165,9 +165,9 @@ namespace Registro_de_internacao
                     command.Transaction = t;
                 }
                 StringBuilder sql = new StringBuilder();
-                sql.AppendLine($"DELETE FROM mvtHospRegInt WHERE codPaciente = @codPaciente");
+                sql.AppendLine($"DELETE FROM mvtHospRegInt WHERE codProntuario = @codProntuario");
                 command.CommandText = sql.ToString();
-                command.Parameters.Add(new SqlParameter("@codPaciente", paciente.codPaciente));
+                command.Parameters.Add(new SqlParameter("@codProntuario", internacao.prontuario));
                 command.ExecuteNonQuery();
             }
         }
@@ -176,8 +176,12 @@ namespace Registro_de_internacao
             List<InternacaoModel> internados = new List<InternacaoModel>();
             SqlCommand command = Connection.CreateCommand();
             StringBuilder sql = new StringBuilder();
-            sql.AppendLine("SELECT codInternacao, codPaciente, prontuario, dataEntrada, horaEntrada, dataSaida, horaSaidade, CNS, clinicaMedica, " +
-                "localizacao, leito, centroDeCusto, hipoteseDiagnostica, medico,CRM, diagnostico, situacao FROM mvtHospRegInt ORDER BY codInternacao ASC");
+            sql.AppendLine("SELECT m.codProntuario, m.codPaciente, m.dataEntrada, m.horaEntrada, m.dataSaida, m.horaSaidade, m.CNS, m.clinicaMedica,"+
+            " m.localizacao, m.leito, m.centroDeCusto, m.hipoteseDiagnostica, m.medico, m.CRM, m.diagnostico, m.situacao," +
+            " p.nomePaciente, p.nomeMaePaciente, p.dataNascPaciente"+
+            " FROM mvtHospRegInt m "+
+            "INNER JOIN mvtHospCadPac p ON m.codPaciente = p.codPaciente"+
+            " ORDER BY m.codProntuario ASC;");
             command.CommandText = sql.ToString();
             using (SqlDataReader dr = command.ExecuteReader())
             {
@@ -188,40 +192,8 @@ namespace Registro_de_internacao
             }
             return internados;
         }
-
-        public List<PacienteModel> GetNomePacientes(PacienteModel paciente)
-        {
-            List<PacienteModel> pacientes = new List<PacienteModel>();
-            SqlCommand command = Connection.CreateCommand();
-            StringBuilder sql = new StringBuilder();
-            sql.AppendLine("SELECT nomePaciente FROM mvtHospCadPac WHERE codPaciente = @codPaciente ORDER BY codPaciente ASC");
-            command.Parameters.Add(new SqlParameter("@codPaciente", paciente.codPaciente));
-            command.CommandText = sql.ToString();
-            using (SqlDataReader dr = command.ExecuteReader())
-            {
-                while (dr.Read())
-                {
-                    pacientes.Add(PopulateDr1(dr));
-                }
-            }
-            return pacientes;
-        }
-        private PacienteModel PopulateDr1(SqlDataReader dr)
-        {
-            string nomePaciente = "";
-
-            if (DBNull.Value != dr["nomePaciente"])
-            {
-                nomePaciente = dr["nomePAciente"] + "";
-            }
-            return new PacienteModel()
-            {
-                nomePaciente = nomePaciente
-            };
-        }
         private InternacaoModel PopulateDr(SqlDataReader dr)
         {
-            string codInternacao = "";
             string prontuario = "";
             string dataEntrada = "";
             string horaEntrada = "";
@@ -239,14 +211,13 @@ namespace Registro_de_internacao
             string situacao = "";
 
             PacienteModel codPaciente = null;
+            PacienteModel nomePaciente = null;
+            PacienteModel mae = null;
+            PacienteModel dataNasc = null;
 
-            if (DBNull.Value != dr["codInternacao"])
+            if (DBNull.Value != dr["codProntuario"])
             {
-                codInternacao = dr["codInternacao"] + "";
-            }
-            if (DBNull.Value != dr["prontuario"])
-            {
-                prontuario = dr["prontuario"] + "";
+                prontuario = dr["codProntuario"] + "";
             }
             if (DBNull.Value != dr["dataEntrada"])
             {
@@ -312,9 +283,32 @@ namespace Registro_de_internacao
                     codPaciente = paciente
                 };
             }
+            if (DBNull.Value != dr["nomePaciente"])
+            {
+                string paciente = dr["nomePaciente"] + "";
+                nomePaciente = new PacienteModel()
+                {
+                    nomePaciente = paciente
+                };
+            }
+            if (DBNull.Value != dr["nomeMaePaciente"])
+            {
+                string paciente = dr["nomeMaePaciente"] + "";
+                mae = new PacienteModel()
+                {
+                    mae = paciente
+                };
+            }
+            if (DBNull.Value != dr["dataNascPaciente"])
+            {
+                string paciente = dr["dataNascPaciente"] + "";
+                dataNasc = new PacienteModel()
+                {
+                    dataNasc = paciente
+                };
+            }
             return new InternacaoModel()
             {
-                codInternacao = codInternacao,
                 prontuario = prontuario,
                 dataEntrada = dataEntrada,
                 horaEntrada = horaEntrada,
@@ -330,7 +324,10 @@ namespace Registro_de_internacao
                 diagnostico = diagnostico,
                 crm = crm,
                 situacao = situacao,
-                PacienteModel = codPaciente
+                PacienteModel = codPaciente, 
+                NomeModel = nomePaciente,
+                MaeModel = mae,
+                DataNascModel = dataNasc
             };
         }
     }

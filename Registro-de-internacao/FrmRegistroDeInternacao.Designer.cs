@@ -65,11 +65,12 @@
             this.btnCarregarLocal = new System.Windows.Forms.Button();
             this.lblNomePaciente = new System.Windows.Forms.Label();
             this.dadosGrid = new System.Windows.Forms.DataGridView();
-            this.colCodPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCarregarCentroCusto = new System.Windows.Forms.Button();
             this.colProntuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCodPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNomePaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDataEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHoraEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCodInterncao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCns = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDataSaida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHoraSaida = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,299 +83,271 @@
             this.colHipoteseDiagnostica = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDiagnostico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCarregarCentroCusto = new System.Windows.Forms.Button();
+            this.colMae = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDataNasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 18);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(18, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 16);
+            this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Paciente";
             // 
             // txtCodPaciente
             // 
-            this.txtCodPaciente.Location = new System.Drawing.Point(124, 15);
-            this.txtCodPaciente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodPaciente.Location = new System.Drawing.Point(73, 36);
             this.txtCodPaciente.Name = "txtCodPaciente";
             this.txtCodPaciente.ReadOnly = true;
-            this.txtCodPaciente.Size = new System.Drawing.Size(65, 22);
+            this.txtCodPaciente.Size = new System.Drawing.Size(45, 20);
             this.txtCodPaciente.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 50);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(12, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 16);
+            this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Prontuário";
             // 
             // txtProntuario
             // 
-            this.txtProntuario.Location = new System.Drawing.Point(124, 47);
-            this.txtProntuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtProntuario.Enabled = false;
+            this.txtProntuario.Location = new System.Drawing.Point(73, 10);
             this.txtProntuario.Name = "txtProntuario";
-            this.txtProntuario.Size = new System.Drawing.Size(65, 22);
+            this.txtProntuario.Size = new System.Drawing.Size(45, 20);
             this.txtProntuario.TabIndex = 3;
             // 
             // dtpDataEntrada
             // 
             this.dtpDataEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataEntrada.Location = new System.Drawing.Point(299, 47);
-            this.dtpDataEntrada.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDataEntrada.Location = new System.Drawing.Point(586, 40);
             this.dtpDataEntrada.Name = "dtpDataEntrada";
-            this.dtpDataEntrada.Size = new System.Drawing.Size(128, 22);
+            this.dtpDataEntrada.Size = new System.Drawing.Size(97, 20);
             this.dtpDataEntrada.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(199, 50);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(511, 43);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 16);
+            this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Data entrada";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(436, 50);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(689, 43);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 16);
+            this.label4.Size = new System.Drawing.Size(69, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Hora entrada";
             // 
             // dtpHoraEntrada
             // 
             this.dtpHoraEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraEntrada.Location = new System.Drawing.Point(535, 47);
-            this.dtpHoraEntrada.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpHoraEntrada.Location = new System.Drawing.Point(763, 40);
             this.dtpHoraEntrada.Name = "dtpHoraEntrada";
             this.dtpHoraEntrada.ShowUpDown = true;
-            this.dtpHoraEntrada.Size = new System.Drawing.Size(96, 22);
+            this.dtpHoraEntrada.Size = new System.Drawing.Size(73, 20);
             this.dtpHoraEntrada.TabIndex = 7;
-            this.dtpHoraEntrada.Value = new System.DateTime(2023, 6, 15, 0, 0, 0, 0);
+            this.dtpHoraEntrada.Value = new System.DateTime(2023, 6, 13, 10, 47, 29, 0);
             // 
             // dtpDataSaida
             // 
             this.dtpDataSaida.Enabled = false;
             this.dtpDataSaida.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataSaida.Location = new System.Drawing.Point(305, 79);
-            this.dtpDataSaida.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDataSaida.Location = new System.Drawing.Point(591, 66);
             this.dtpDataSaida.Name = "dtpDataSaida";
-            this.dtpDataSaida.Size = new System.Drawing.Size(133, 22);
+            this.dtpDataSaida.Size = new System.Drawing.Size(101, 20);
             this.dtpDataSaida.TabIndex = 8;
-            this.dtpDataSaida.Value = new System.DateTime(1753, 1, 1, 11, 0, 0, 0);
+            this.dtpDataSaida.Value = new System.DateTime(2023, 6, 13, 0, 0, 0, 0);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(199, 82);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(511, 69);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 16);
+            this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Data saida";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 82);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(12, 67);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 16);
+            this.label6.Size = new System.Drawing.Size(29, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "CNS";
             // 
             // txtCns
             // 
-            this.txtCns.Location = new System.Drawing.Point(63, 79);
-            this.txtCns.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCns.Location = new System.Drawing.Point(47, 64);
             this.txtCns.Name = "txtCns";
-            this.txtCns.Size = new System.Drawing.Size(116, 22);
+            this.txtCns.Size = new System.Drawing.Size(88, 20);
             this.txtCns.TabIndex = 11;
             // 
             // dtpHoraSaida
             // 
             this.dtpHoraSaida.Enabled = false;
             this.dtpHoraSaida.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraSaida.Location = new System.Drawing.Point(535, 79);
-            this.dtpHoraSaida.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpHoraSaida.Location = new System.Drawing.Point(763, 66);
             this.dtpHoraSaida.Name = "dtpHoraSaida";
             this.dtpHoraSaida.ShowUpDown = true;
-            this.dtpHoraSaida.Size = new System.Drawing.Size(96, 22);
+            this.dtpHoraSaida.Size = new System.Drawing.Size(73, 20);
             this.dtpHoraSaida.TabIndex = 13;
-            this.dtpHoraSaida.Value = new System.DateTime(2023, 6, 15, 0, 0, 0, 0);
+            this.dtpHoraSaida.Value = new System.DateTime(2023, 6, 13, 0, 0, 0, 0);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(448, 82);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(698, 69);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 16);
+            this.label7.Size = new System.Drawing.Size(58, 13);
             this.label7.TabIndex = 12;
             this.label7.Text = "Hora saida";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 146);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(12, 119);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 16);
+            this.label8.Size = new System.Drawing.Size(75, 13);
             this.label8.TabIndex = 14;
             this.label8.Text = "Clinica médica";
             // 
             // txtClinicaMedica
             // 
-            this.txtClinicaMedica.Location = new System.Drawing.Point(124, 144);
-            this.txtClinicaMedica.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtClinicaMedica.Location = new System.Drawing.Point(93, 117);
             this.txtClinicaMedica.Name = "txtClinicaMedica";
-            this.txtClinicaMedica.Size = new System.Drawing.Size(219, 22);
+            this.txtClinicaMedica.Size = new System.Drawing.Size(165, 20);
             this.txtClinicaMedica.TabIndex = 15;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(16, 178);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(12, 145);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(80, 16);
+            this.label9.Size = new System.Drawing.Size(64, 13);
             this.label9.TabIndex = 16;
             this.label9.Text = "Localização";
             // 
             // txtLocalizacao
             // 
-            this.txtLocalizacao.Location = new System.Drawing.Point(124, 176);
-            this.txtLocalizacao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLocalizacao.Location = new System.Drawing.Point(93, 143);
             this.txtLocalizacao.Name = "txtLocalizacao";
-            this.txtLocalizacao.Size = new System.Drawing.Size(219, 22);
+            this.txtLocalizacao.Size = new System.Drawing.Size(165, 20);
             this.txtLocalizacao.TabIndex = 17;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(352, 178);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(264, 145);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(36, 16);
+            this.label10.Size = new System.Drawing.Size(30, 13);
             this.label10.TabIndex = 18;
             this.label10.Text = "Leito";
             // 
             // txtLeito
             // 
-            this.txtLeito.Location = new System.Drawing.Point(472, 175);
-            this.txtLeito.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLeito.Location = new System.Drawing.Point(352, 142);
             this.txtLeito.Name = "txtLeito";
-            this.txtLeito.Size = new System.Drawing.Size(159, 22);
+            this.txtLeito.Size = new System.Drawing.Size(122, 20);
             this.txtLeito.TabIndex = 19;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(352, 148);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(264, 120);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(100, 16);
+            this.label11.Size = new System.Drawing.Size(82, 13);
             this.label11.TabIndex = 20;
             this.label11.Text = "Centro de custo";
             // 
             // txtCentroCusto
             // 
-            this.txtCentroCusto.Location = new System.Drawing.Point(469, 143);
-            this.txtCentroCusto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCentroCusto.Location = new System.Drawing.Point(352, 116);
             this.txtCentroCusto.Name = "txtCentroCusto";
-            this.txtCentroCusto.Size = new System.Drawing.Size(161, 22);
+            this.txtCentroCusto.ReadOnly = true;
+            this.txtCentroCusto.Size = new System.Drawing.Size(122, 20);
             this.txtCentroCusto.TabIndex = 21;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(16, 212);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(12, 172);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(135, 16);
+            this.label12.Size = new System.Drawing.Size(106, 13);
             this.label12.TabIndex = 22;
             this.label12.Text = "Hipótese diagnóstica";
             // 
             // txtHipoteseDiagnostica
             // 
-            this.txtHipoteseDiagnostica.Location = new System.Drawing.Point(165, 208);
-            this.txtHipoteseDiagnostica.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHipoteseDiagnostica.Location = new System.Drawing.Point(124, 169);
             this.txtHipoteseDiagnostica.Name = "txtHipoteseDiagnostica";
-            this.txtHipoteseDiagnostica.Size = new System.Drawing.Size(465, 22);
+            this.txtHipoteseDiagnostica.Size = new System.Drawing.Size(350, 20);
             this.txtHipoteseDiagnostica.TabIndex = 23;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 116);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(12, 94);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(52, 16);
+            this.label13.Size = new System.Drawing.Size(42, 13);
             this.label13.TabIndex = 24;
             this.label13.Text = "Médico";
             // 
             // txtMedico
             // 
-            this.txtMedico.Location = new System.Drawing.Point(124, 112);
-            this.txtMedico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMedico.Location = new System.Drawing.Point(93, 91);
             this.txtMedico.Name = "txtMedico";
-            this.txtMedico.Size = new System.Drawing.Size(219, 22);
+            this.txtMedico.Size = new System.Drawing.Size(165, 20);
             this.txtMedico.TabIndex = 25;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(352, 114);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(264, 93);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(37, 16);
+            this.label14.Size = new System.Drawing.Size(31, 13);
             this.label14.TabIndex = 26;
             this.label14.Text = "CRM";
             // 
             // txtCrm
             // 
-            this.txtCrm.Location = new System.Drawing.Point(469, 111);
-            this.txtCrm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCrm.Location = new System.Drawing.Point(352, 90);
             this.txtCrm.Name = "txtCrm";
-            this.txtCrm.Size = new System.Drawing.Size(161, 22);
+            this.txtCrm.Size = new System.Drawing.Size(122, 20);
             this.txtCrm.TabIndex = 27;
             // 
             // txtDiagnostico
             // 
-            this.txtDiagnostico.Location = new System.Drawing.Point(165, 240);
-            this.txtDiagnostico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDiagnostico.Location = new System.Drawing.Point(124, 195);
             this.txtDiagnostico.Name = "txtDiagnostico";
-            this.txtDiagnostico.Size = new System.Drawing.Size(465, 22);
+            this.txtDiagnostico.Size = new System.Drawing.Size(350, 20);
             this.txtDiagnostico.TabIndex = 28;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(16, 245);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Location = new System.Drawing.Point(12, 199);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(79, 16);
+            this.label15.Size = new System.Drawing.Size(63, 13);
             this.label15.TabIndex = 29;
             this.label15.Text = "Diagnóstico";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(16, 276);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Location = new System.Drawing.Point(12, 224);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(60, 16);
+            this.label16.Size = new System.Drawing.Size(49, 13);
             this.label16.TabIndex = 30;
             this.label16.Text = "Situação";
             // 
@@ -386,18 +359,16 @@
             "Internado",
             "Óbito",
             "Alta"});
-            this.cbxSituacao.Location = new System.Drawing.Point(165, 272);
-            this.cbxSituacao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxSituacao.Location = new System.Drawing.Point(124, 221);
             this.cbxSituacao.Name = "cbxSituacao";
-            this.cbxSituacao.Size = new System.Drawing.Size(160, 24);
+            this.cbxSituacao.Size = new System.Drawing.Size(121, 21);
             this.cbxSituacao.TabIndex = 31;
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(424, 272);
-            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalvar.Location = new System.Drawing.Point(318, 221);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(100, 26);
+            this.btnSalvar.Size = new System.Drawing.Size(75, 21);
             this.btnSalvar.TabIndex = 33;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -405,10 +376,9 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(532, 272);
-            this.btnExcluir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExcluir.Location = new System.Drawing.Point(399, 221);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(100, 26);
+            this.btnExcluir.Size = new System.Drawing.Size(75, 21);
             this.btnExcluir.TabIndex = 34;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -419,10 +389,10 @@
             this.btnCarregarLocal.FlatAppearance.BorderSize = 0;
             this.btnCarregarLocal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCarregarLocal.Image = global::Registro_de_internacao.Properties.Resources.magnifying_glass_icon;
-            this.btnCarregarLocal.Location = new System.Drawing.Point(197, 15);
-            this.btnCarregarLocal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCarregarLocal.Location = new System.Drawing.Point(124, 36);
+            this.btnCarregarLocal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCarregarLocal.Name = "btnCarregarLocal";
-            this.btnCarregarLocal.Size = new System.Drawing.Size(23, 22);
+            this.btnCarregarLocal.Size = new System.Drawing.Size(24, 20);
             this.btnCarregarLocal.TabIndex = 32;
             this.btnCarregarLocal.UseVisualStyleBackColor = true;
             this.btnCarregarLocal.Click += new System.EventHandler(this.btnCarregarLocal_Click);
@@ -430,10 +400,9 @@
             // lblNomePaciente
             // 
             this.lblNomePaciente.AutoSize = true;
-            this.lblNomePaciente.Location = new System.Drawing.Point(227, 18);
-            this.lblNomePaciente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNomePaciente.Location = new System.Drawing.Point(153, 40);
             this.lblNomePaciente.Name = "lblNomePaciente";
-            this.lblNomePaciente.Size = new System.Drawing.Size(44, 16);
+            this.lblNomePaciente.Size = new System.Drawing.Size(35, 13);
             this.lblNomePaciente.TabIndex = 35;
             this.lblNomePaciente.Text = "Nome";
             this.lblNomePaciente.Visible = false;
@@ -449,11 +418,11 @@
             this.dadosGrid.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dadosGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dadosGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colCodPaciente,
             this.colProntuario,
+            this.colCodPaciente,
+            this.colNomePaciente,
             this.colDataEntrada,
             this.colHoraEntrada,
-            this.colCodInterncao,
             this.colCns,
             this.colDataSaida,
             this.colHoraSaida,
@@ -465,16 +434,37 @@
             this.colLeito,
             this.colHipoteseDiagnostica,
             this.colDiagnostico,
-            this.colSituacao});
-            this.dadosGrid.Location = new System.Drawing.Point(16, 305);
-            this.dadosGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.colSituacao,
+            this.colMae,
+            this.colDataNasc});
+            this.dadosGrid.Location = new System.Drawing.Point(12, 248);
             this.dadosGrid.Name = "dadosGrid";
             this.dadosGrid.ReadOnly = true;
             this.dadosGrid.RowHeadersWidth = 51;
             this.dadosGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dadosGrid.Size = new System.Drawing.Size(783, 277);
+            this.dadosGrid.Size = new System.Drawing.Size(842, 225);
             this.dadosGrid.TabIndex = 36;
             this.dadosGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dadosGrid_CellDoubleClick);
+            // 
+            // btnCarregarCentroCusto
+            // 
+            this.btnCarregarCentroCusto.FlatAppearance.BorderSize = 0;
+            this.btnCarregarCentroCusto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarregarCentroCusto.Image = global::Registro_de_internacao.Properties.Resources.magnifying_glass_icon;
+            this.btnCarregarCentroCusto.Location = new System.Drawing.Point(478, 116);
+            this.btnCarregarCentroCusto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCarregarCentroCusto.Name = "btnCarregarCentroCusto";
+            this.btnCarregarCentroCusto.Size = new System.Drawing.Size(20, 19);
+            this.btnCarregarCentroCusto.TabIndex = 37;
+            this.btnCarregarCentroCusto.UseVisualStyleBackColor = true;
+            this.btnCarregarCentroCusto.Click += new System.EventHandler(this.btnCarregarCentroCusto_Click);
+            // 
+            // colProntuario
+            // 
+            this.colProntuario.HeaderText = "Código prontuário";
+            this.colProntuario.MinimumWidth = 6;
+            this.colProntuario.Name = "colProntuario";
+            this.colProntuario.ReadOnly = true;
             // 
             // colCodPaciente
             // 
@@ -484,14 +474,12 @@
             this.colCodPaciente.MinimumWidth = 6;
             this.colCodPaciente.Name = "colCodPaciente";
             this.colCodPaciente.ReadOnly = true;
-            this.colCodPaciente.Width = 124;
             // 
-            // colProntuario
+            // colNomePaciente
             // 
-            this.colProntuario.HeaderText = "Prontuário";
-            this.colProntuario.MinimumWidth = 6;
-            this.colProntuario.Name = "colProntuario";
-            this.colProntuario.ReadOnly = true;
+            this.colNomePaciente.HeaderText = "Nome paciente";
+            this.colNomePaciente.Name = "colNomePaciente";
+            this.colNomePaciente.ReadOnly = true;
             // 
             // colDataEntrada
             // 
@@ -508,13 +496,6 @@
             this.colHoraEntrada.ReadOnly = true;
             this.colHoraEntrada.Visible = false;
             // 
-            // colCodInterncao
-            // 
-            this.colCodInterncao.HeaderText = "Código internação";
-            this.colCodInterncao.MinimumWidth = 6;
-            this.colCodInterncao.Name = "colCodInterncao";
-            this.colCodInterncao.ReadOnly = true;
-            // 
             // colCns
             // 
             this.colCns.HeaderText = "Cns";
@@ -529,6 +510,7 @@
             this.colDataSaida.MinimumWidth = 6;
             this.colDataSaida.Name = "colDataSaida";
             this.colDataSaida.ReadOnly = true;
+            this.colDataSaida.Visible = false;
             // 
             // colHoraSaida
             // 
@@ -608,23 +590,26 @@
             this.colSituacao.MinimumWidth = 6;
             this.colSituacao.Name = "colSituacao";
             this.colSituacao.ReadOnly = true;
-            this.colSituacao.Visible = false;
             // 
-            // btnCarregarCentroCusto
+            // colMae
             // 
-            this.btnCarregarCentroCusto.Location = new System.Drawing.Point(637, 143);
-            this.btnCarregarCentroCusto.Name = "btnCarregarCentroCusto";
-            this.btnCarregarCentroCusto.Size = new System.Drawing.Size(27, 23);
-            this.btnCarregarCentroCusto.TabIndex = 37;
-            this.btnCarregarCentroCusto.Text = "button1";
-            this.btnCarregarCentroCusto.UseVisualStyleBackColor = true;
-            this.btnCarregarCentroCusto.Click += new System.EventHandler(this.btnCarregarCentroCusto_Click);
+            this.colMae.HeaderText = "Mãe";
+            this.colMae.Name = "colMae";
+            this.colMae.ReadOnly = true;
+            this.colMae.Visible = false;
+            // 
+            // colDataNasc
+            // 
+            this.colDataNasc.HeaderText = "Data de Nascimento";
+            this.colDataNasc.Name = "colDataNasc";
+            this.colDataNasc.ReadOnly = true;
+            this.colDataNasc.Visible = false;
             // 
             // FrmRegistroDeInternacao
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(815, 597);
+            this.ClientSize = new System.Drawing.Size(866, 485);
             this.Controls.Add(this.btnCarregarCentroCusto);
             this.Controls.Add(this.dadosGrid);
             this.Controls.Add(this.lblNomePaciente);
@@ -663,7 +648,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCodPaciente);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmRegistroDeInternacao";
             this.Text = "Registro de Internação";
             this.Load += new System.EventHandler(this.FrmRegistroDeInternacao_Load);
@@ -712,11 +696,12 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Label lblNomePaciente;
         private System.Windows.Forms.DataGridView dadosGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCodPaciente;
+        private System.Windows.Forms.Button btnCarregarCentroCusto;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProntuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodPaciente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNomePaciente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDataEntrada;
         private System.Windows.Forms.DataGridViewTextBoxColumn colHoraEntrada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCodInterncao;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCns;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDataSaida;
         private System.Windows.Forms.DataGridViewTextBoxColumn colHoraSaida;
@@ -729,7 +714,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colHipoteseDiagnostica;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDiagnostico;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSituacao;
-        private System.Windows.Forms.Button btnCarregarCentroCusto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMae;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDataNasc;
     }
 }
 

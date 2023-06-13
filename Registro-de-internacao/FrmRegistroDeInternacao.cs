@@ -49,11 +49,10 @@ namespace Registro_de_internacao
                 foreach (InternacaoModel internado in internados)
                 {
                     DataGridViewRow row = dadosGrid.Rows[dadosGrid.Rows.Add()];
-                    row.Cells[colCodInterncao.Index].Value = internado.codInternacao;
                     row.Cells[colCodPaciente.Index].Value = internado.PacienteModel.codPaciente;
-                    row.Cells[colCodPaciente.Index].Value = internado.PacienteModel.nomePaciente;
+                    row.Cells[colNomePaciente.Index].Value = internado.NomeModel.nomePaciente;
                     row.Cells[colProntuario.Index].Value = internado.prontuario;
-                    row.Cells[colDataEntrada.Index].Value = internado.dataEntrada;
+                    row.Cells[colDataEntrada.Index].Value = internado.dataEntrada.ToString().Substring(0, 10);
                     row.Cells[colHoraEntrada.Index].Value = internado.horaEntrada;
                     row.Cells[colDataSaida.Index].Value = internado.dataSaida;
                     row.Cells[colHoraSaida.Index].Value = internado.horaSaida;
@@ -63,9 +62,12 @@ namespace Registro_de_internacao
                     row.Cells[colClinicaMedica.Index].Value = internado.clinicaMedica;
                     row.Cells[colCentroDeCusto.Index].Value = internado.centroDeCusto;
                     row.Cells[colLeito.Index].Value = internado.leito;
+                    row.Cells[colCns.Index].Value = internado.cns;
                     row.Cells[colHipoteseDiagnostica.Index].Value = internado.hipoteseDiagnostica;
                     row.Cells[colDiagnostico.Index].Value = internado.diagnostico;
                     row.Cells[colSituacao.Index].Value = internado.situacao;
+                    row.Cells[colMae.Index].Value = internado.MaeModel.mae;
+                    row.Cells[colDataNasc.Index].Value = internado.DataNascModel.mae;
                 }
             }
         }
@@ -73,6 +75,7 @@ namespace Registro_de_internacao
         private void FrmRegistroDeInternacao_Load(object sender, EventArgs e)
         {
             CarregarUsuariosGrid();
+            LoadId();
             btnExcluir.Enabled = false;
         }
         private void btnCarregarLocal_Click(object sender, EventArgs e)
@@ -82,11 +85,6 @@ namespace Registro_de_internacao
         private void ApagarCampos()
         {
             txtCodPaciente.Text = "";
-            txtProntuario.Text = "";
-            dtpDataEntrada.Value = DateTime.Now;
-            dtpHoraEntrada.Value = DateTime.Now;
-            dtpDataSaida.Value = DateTime.MinValue;
-            dtpHoraSaida.Value = DateTime.MinValue;
             txtCns.Text = "";
             txtMedico.Text = "";
             txtCrm.Text = "";
@@ -97,6 +95,16 @@ namespace Registro_de_internacao
             txtHipoteseDiagnostica.Text = "";
             txtDiagnostico.Text = "";
             cbxSituacao.SelectedIndex = -1;
+        }
+        private void LoadId()
+        {
+            using (SqlConnection connection = DaoConnection.GetConexao())
+            {
+                SqlCommand cmd = new SqlCommand("SELECT IDENT_CURRENT('mvtHospRegInt') + 1", connection);
+                int proximoID = Convert.ToInt32(cmd.ExecuteScalar());
+                txtProntuario.Text = proximoID.ToString();
+
+            }
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -122,9 +130,9 @@ namespace Registro_de_internacao
                     });
                     if (verificaRegistros)
                     {
-                        int count = dao.VerificaRegistros(new PacienteModel()
+                        int count = dao.VerificaRegistros(new InternacaoModel()
                         {
-                            codPaciente = txtCodPaciente.Text
+                            prontuario = txtProntuario.Text
                         });
 
                         if (count > 0)
@@ -136,9 +144,9 @@ namespace Registro_de_internacao
                             {
                                 prontuario = txtProntuario.Text,
                                 dataEntrada = dtpDataEntrada.Value.Date.ToString(),
-                                horaEntrada = dtpHoraEntrada.Value.Date.ToString(),
+                                horaEntrada = dtpHoraEntrada.Value.ToString(),
                                 dataSaida = dtpDataSaida.Value.Date.ToString(),
-                                horaSaida = dtpHoraSaida.Value.Date.ToString(),
+                                horaSaida = dtpHoraSaida.Value.ToString(),
                                 cns = txtCns.Text,
                                 clinicaMedica = txtClinicaMedica.Text,
                                 localizacao = txtLocalizacao.Text,
@@ -153,6 +161,7 @@ namespace Registro_de_internacao
                             });
                             MessageBox.Show("Registro atualizado com sucesso!");
                             ApagarCampos();
+                            CarregarUsuariosGrid();
                         }
                         else
                         {
@@ -161,11 +170,10 @@ namespace Registro_de_internacao
                                 codPaciente = txtCodPaciente.Text
                             }, new InternacaoModel()
                             {
-                                prontuario = txtProntuario.Text,
                                 dataEntrada = dtpDataEntrada.Value.Date.ToString(),
-                                horaEntrada = dtpHoraEntrada.Value.Date.ToString(),
+                                horaEntrada = dtpHoraEntrada.Value.ToString(),
                                 dataSaida = dtpDataSaida.Value.Date.ToString(),
-                                horaSaida = dtpHoraSaida.Value.Date.ToString(),
+                                horaSaida = dtpHoraSaida.Value.ToString(),
                                 cns = txtCns.Text,
                                 clinicaMedica = txtClinicaMedica.Text,
                                 localizacao = txtLocalizacao.Text,
@@ -180,9 +188,11 @@ namespace Registro_de_internacao
                             });
                             MessageBox.Show("Registro salvo com sucesso!");
                             ApagarCampos();
+                            CarregarUsuariosGrid();
                         }
                     }
                     CarregarUsuariosGrid();
+                    LoadId();
                     btnExcluir.Enabled = false;
                 }
             }
@@ -218,14 +228,15 @@ namespace Registro_de_internacao
                         });
                         if (verificaRegistros)
                         {
-                            dao.Excluir(new PacienteModel()
+                            dao.Excluir(new InternacaoModel()
                             {
-                                codPaciente = txtCodPaciente.Text
+                                prontuario = txtProntuario.Text
                             });
                         }
                     }
                     MessageBox.Show("Registro excluído com sucesso!");
                     CarregarUsuariosGrid();
+                    LoadId();
                     btnExcluir.Enabled = true;
                     ApagarCampos();
                 }
@@ -239,24 +250,47 @@ namespace Registro_de_internacao
 
         private void dadosGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtCodPaciente.Text = dadosGrid.Rows[e.RowIndex].Cells[colCodPaciente.Index].Value + "";
-            txtProntuario.Text = dadosGrid.Rows[e.RowIndex].Cells[colProntuario.Index].Value + "";
-            dtpDataEntrada.Text = dadosGrid.Rows[e.RowIndex].Cells[colDataEntrada.Index].Value + "";
-            dtpHoraEntrada.Text = dadosGrid.Rows[e.RowIndex].Cells[colHoraEntrada.Index].Value + "";
-            dtpDataSaida.Text = dadosGrid.Rows[e.RowIndex].Cells[colDataSaida.Index].Value + "";
-            dtpHoraSaida.Text = dadosGrid.Rows[e.RowIndex].Cells[colHoraSaida.Index].Value + "";
-            txtCns.Text = dadosGrid.Rows[e.RowIndex].Cells[colCns.Index].Value + "";
-            txtMedico.Text = dadosGrid.Rows[e.RowIndex].Cells[colMedico.Index].Value + "";
-            txtCrm.Text = dadosGrid.Rows[e.RowIndex].Cells[colCRM.Index].Value + "";
-            txtClinicaMedica.Text = dadosGrid.Rows[e.RowIndex].Cells[colClinicaMedica.Index].Value + "";
-            txtCentroCusto.Text = dadosGrid.Rows[e.RowIndex].Cells[colCentroDeCusto.Index].Value + "";
-            txtLocalizacao.Text = dadosGrid.Rows[e.RowIndex].Cells[colLocalizacao.Index].Value + "";
-            txtLeito.Text = dadosGrid.Rows[e.RowIndex].Cells[colLeito.Index].Value + "";
-            txtHipoteseDiagnostica.Text = dadosGrid.Rows[e.RowIndex].Cells[colHipoteseDiagnostica.Index].Value + "";
-            txtDiagnostico.Text = dadosGrid.Rows[e.RowIndex].Cells[colDiagnostico.Index].Value + "";
-            cbxSituacao.Text = dadosGrid.Rows[e.RowIndex].Cells[colSituacao.Index].Value + "";
-        }
+            if (e.RowIndex > -1 && e.ColumnIndex > -1)
+            {
+                txtCodPaciente.Text = dadosGrid.Rows[e.RowIndex].Cells[colCodPaciente.Index].Value + "";
+                txtProntuario.Text = dadosGrid.Rows[e.RowIndex].Cells[colProntuario.Index].Value + "";
+                dtpDataEntrada.Text = dadosGrid.Rows[e.RowIndex].Cells[colDataEntrada.Index].Value + "";
+                dtpHoraEntrada.Text = dadosGrid.Rows[e.RowIndex].Cells[colHoraEntrada.Index].Value + "";
+                dtpDataSaida.Text = dadosGrid.Rows[e.RowIndex].Cells[colDataSaida.Index].Value + "";
+                dtpHoraSaida.Text = dadosGrid.Rows[e.RowIndex].Cells[colHoraSaida.Index].Value + "";
+                txtCns.Text = dadosGrid.Rows[e.RowIndex].Cells[colCns.Index].Value + "";
+                txtMedico.Text = dadosGrid.Rows[e.RowIndex].Cells[colMedico.Index].Value + "";
+                txtCrm.Text = dadosGrid.Rows[e.RowIndex].Cells[colCRM.Index].Value + "";
+                txtClinicaMedica.Text = dadosGrid.Rows[e.RowIndex].Cells[colClinicaMedica.Index].Value + "";
+                txtCentroCusto.Text = dadosGrid.Rows[e.RowIndex].Cells[colCentroDeCusto.Index].Value + "";
+                txtLocalizacao.Text = dadosGrid.Rows[e.RowIndex].Cells[colLocalizacao.Index].Value + "";
+                txtLeito.Text = dadosGrid.Rows[e.RowIndex].Cells[colLeito.Index].Value + "";
+                txtHipoteseDiagnostica.Text = dadosGrid.Rows[e.RowIndex].Cells[colHipoteseDiagnostica.Index].Value + "";
+                txtDiagnostico.Text = dadosGrid.Rows[e.RowIndex].Cells[colDiagnostico.Index].Value + "";
+                cbxSituacao.Text = dadosGrid.Rows[e.RowIndex].Cells[colSituacao.Index].Value + "";
+                //lblNomePaciente.Text = $"Nome: {dadosGrid.Rows[e.RowIndex].Cells[colNomePaciente.Index].Value + ""}, Mãe: {dadosGrid.Rows[e.RowIndex].Cells[colMae.Index].Value + ""}, " +
+                //    $"Idade: {} anos";
+                if (string.IsNullOrEmpty(this.txtCodPaciente.Text))
+                {
+                    btnExcluir.Enabled = false;
 
+                }
+                else
+                {
+                    btnExcluir.Enabled = true;
+                }
+            }
+        }
+        private int CalcularIdade(DateTime dataNascimento)
+        {
+            DateTime dataAtual = DateTime.Today;
+            int idade = dataAtual.Year - dataNascimento.Year;
+            if (dataNascimento > dataAtual.AddYears(-idade))
+            {
+                idade--;
+            }
+            return idade;
+        }
         private void btnCarregarCentroCusto_Click(object sender, EventArgs e)
         {
             AbrirSelecaoCentroCusto();
