@@ -25,12 +25,19 @@ namespace Registro_de_internacao
             if (string.IsNullOrEmpty(paciente.nome) || string.IsNullOrWhiteSpace(paciente.nome))
             {
                 lblNomePaciente.Visible = false;
+                lblExibirMae.Visible = false;
+                lblExibirIdade.Visible = false;
             }
             else
             {
                 txtCodPaciente.Text = paciente.codigo;
-                lblNomePaciente.Text = $"Nome: {paciente.nome}, Mãe: {paciente.nomeDaMae}, Idade: {paciente.idadeOf} anos";
+                lblNomePaciente.Text = $"Paciente: {paciente.nome}";
+                lblExibirIdade.Text = $"Idade: {paciente.idadeOf} anos";
+                lblExibirMae.Text = $"Mãe: {paciente.nomeDaMae}";
+
                 lblNomePaciente.Visible = true;
+                lblExibirMae.Visible = true;
+                lblExibirIdade.Visible = true;
             }
         }
         public void AbrirSelecaoCentroCusto()
@@ -77,6 +84,7 @@ namespace Registro_de_internacao
             CarregarUsuariosGrid();
             LoadId();
             btnExcluir.Enabled = false;
+            dtpHoraEntrada.Value = DateTime.Now;
         }
         private void btnCarregarLocal_Click(object sender, EventArgs e)
         {
@@ -95,6 +103,7 @@ namespace Registro_de_internacao
             txtHipoteseDiagnostica.Text = "";
             txtDiagnostico.Text = "";
             cbxSituacao.SelectedIndex = -1;
+            dtpHoraEntrada.Value = DateTime.Now;
         }
         private void LoadId()
         {
@@ -281,16 +290,16 @@ namespace Registro_de_internacao
                 }
             }
         }
-        private int CalcularIdade(DateTime dataNascimento)
-        {
-            DateTime dataAtual = DateTime.Today;
-            int idade = dataAtual.Year - dataNascimento.Year;
-            if (dataNascimento > dataAtual.AddYears(-idade))
-            {
-                idade--;
-            }
-            return idade;
-        }
+        //private int CalcularIdade(DateTime dataNascimento)
+        //{
+        //    DateTime dataAtual = DateTime.Today;
+        //    int idade = dataAtual.Year - dataNascimento.Year;
+        //    if (dataNascimento > dataAtual.AddYears(-idade))
+        //    {
+        //        idade--;
+        //    }
+        //    return idade;
+        //}
         private void btnCarregarCentroCusto_Click(object sender, EventArgs e)
         {
             AbrirSelecaoCentroCusto();

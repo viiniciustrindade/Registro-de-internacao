@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistroDeInternacao));
             this.label1 = new System.Windows.Forms.Label();
             this.txtCodPaciente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -66,6 +67,10 @@
             this.lblNomePaciente = new System.Windows.Forms.Label();
             this.dadosGrid = new System.Windows.Forms.DataGridView();
             this.btnCarregarCentroCusto = new System.Windows.Forms.Button();
+            this.lblExibirIdade = new System.Windows.Forms.Label();
+            this.lblExibirMae = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.colProntuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCodPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNomePaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,12 +91,14 @@
             this.colMae = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDataNasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 39);
+            this.label1.Location = new System.Drawing.Point(6, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 0;
@@ -99,7 +106,7 @@
             // 
             // txtCodPaciente
             // 
-            this.txtCodPaciente.Location = new System.Drawing.Point(73, 36);
+            this.txtCodPaciente.Location = new System.Drawing.Point(67, 56);
             this.txtCodPaciente.Name = "txtCodPaciente";
             this.txtCodPaciente.ReadOnly = true;
             this.txtCodPaciente.Size = new System.Drawing.Size(45, 20);
@@ -108,7 +115,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 13);
+            this.label2.Location = new System.Drawing.Point(6, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 2;
@@ -117,7 +124,7 @@
             // txtProntuario
             // 
             this.txtProntuario.Enabled = false;
-            this.txtProntuario.Location = new System.Drawing.Point(73, 10);
+            this.txtProntuario.Location = new System.Drawing.Point(67, 30);
             this.txtProntuario.Name = "txtProntuario";
             this.txtProntuario.Size = new System.Drawing.Size(45, 20);
             this.txtProntuario.TabIndex = 3;
@@ -125,7 +132,7 @@
             // dtpDataEntrada
             // 
             this.dtpDataEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataEntrada.Location = new System.Drawing.Point(586, 40);
+            this.dtpDataEntrada.Location = new System.Drawing.Point(474, 30);
             this.dtpDataEntrada.Name = "dtpDataEntrada";
             this.dtpDataEntrada.Size = new System.Drawing.Size(97, 20);
             this.dtpDataEntrada.TabIndex = 4;
@@ -133,7 +140,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(511, 43);
+            this.label3.Location = new System.Drawing.Point(399, 33);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 5;
@@ -142,7 +149,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(689, 43);
+            this.label4.Location = new System.Drawing.Point(577, 33);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 13);
             this.label4.TabIndex = 6;
@@ -151,27 +158,27 @@
             // dtpHoraEntrada
             // 
             this.dtpHoraEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraEntrada.Location = new System.Drawing.Point(763, 40);
+            this.dtpHoraEntrada.Location = new System.Drawing.Point(651, 30);
             this.dtpHoraEntrada.Name = "dtpHoraEntrada";
             this.dtpHoraEntrada.ShowUpDown = true;
-            this.dtpHoraEntrada.Size = new System.Drawing.Size(73, 20);
+            this.dtpHoraEntrada.Size = new System.Drawing.Size(76, 20);
             this.dtpHoraEntrada.TabIndex = 7;
-            this.dtpHoraEntrada.Value = new System.DateTime(2023, 6, 13, 10, 47, 29, 0);
+            this.dtpHoraEntrada.Value = new System.DateTime(2023, 6, 14, 0, 0, 0, 0);
             // 
             // dtpDataSaida
             // 
             this.dtpDataSaida.Enabled = false;
             this.dtpDataSaida.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataSaida.Location = new System.Drawing.Point(591, 66);
+            this.dtpDataSaida.Location = new System.Drawing.Point(474, 56);
             this.dtpDataSaida.Name = "dtpDataSaida";
-            this.dtpDataSaida.Size = new System.Drawing.Size(101, 20);
+            this.dtpDataSaida.Size = new System.Drawing.Size(97, 20);
             this.dtpDataSaida.TabIndex = 8;
             this.dtpDataSaida.Value = new System.DateTime(2023, 6, 13, 0, 0, 0, 0);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(511, 69);
+            this.label5.Location = new System.Drawing.Point(399, 59);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 9;
@@ -180,7 +187,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 67);
+            this.label6.Location = new System.Drawing.Point(6, 85);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 13);
             this.label6.TabIndex = 10;
@@ -188,26 +195,26 @@
             // 
             // txtCns
             // 
-            this.txtCns.Location = new System.Drawing.Point(47, 64);
+            this.txtCns.Location = new System.Drawing.Point(67, 82);
             this.txtCns.Name = "txtCns";
-            this.txtCns.Size = new System.Drawing.Size(88, 20);
+            this.txtCns.Size = new System.Drawing.Size(75, 20);
             this.txtCns.TabIndex = 11;
             // 
             // dtpHoraSaida
             // 
             this.dtpHoraSaida.Enabled = false;
             this.dtpHoraSaida.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraSaida.Location = new System.Drawing.Point(763, 66);
+            this.dtpHoraSaida.Location = new System.Drawing.Point(651, 56);
             this.dtpHoraSaida.Name = "dtpHoraSaida";
             this.dtpHoraSaida.ShowUpDown = true;
-            this.dtpHoraSaida.Size = new System.Drawing.Size(73, 20);
+            this.dtpHoraSaida.Size = new System.Drawing.Size(76, 20);
             this.dtpHoraSaida.TabIndex = 13;
             this.dtpHoraSaida.Value = new System.DateTime(2023, 6, 13, 0, 0, 0, 0);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(698, 69);
+            this.label7.Location = new System.Drawing.Point(577, 59);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 13);
             this.label7.TabIndex = 12;
@@ -216,7 +223,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 119);
+            this.label8.Location = new System.Drawing.Point(8, 59);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(75, 13);
             this.label8.TabIndex = 14;
@@ -224,15 +231,15 @@
             // 
             // txtClinicaMedica
             // 
-            this.txtClinicaMedica.Location = new System.Drawing.Point(93, 117);
+            this.txtClinicaMedica.Location = new System.Drawing.Point(120, 57);
             this.txtClinicaMedica.Name = "txtClinicaMedica";
-            this.txtClinicaMedica.Size = new System.Drawing.Size(165, 20);
+            this.txtClinicaMedica.Size = new System.Drawing.Size(134, 20);
             this.txtClinicaMedica.TabIndex = 15;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 145);
+            this.label9.Location = new System.Drawing.Point(499, 59);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 13);
             this.label9.TabIndex = 16;
@@ -240,15 +247,15 @@
             // 
             // txtLocalizacao
             // 
-            this.txtLocalizacao.Location = new System.Drawing.Point(93, 143);
+            this.txtLocalizacao.Location = new System.Drawing.Point(569, 56);
             this.txtLocalizacao.Name = "txtLocalizacao";
-            this.txtLocalizacao.Size = new System.Drawing.Size(165, 20);
+            this.txtLocalizacao.Size = new System.Drawing.Size(158, 20);
             this.txtLocalizacao.TabIndex = 17;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(264, 145);
+            this.label10.Location = new System.Drawing.Point(499, 85);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(30, 13);
             this.label10.TabIndex = 18;
@@ -256,15 +263,15 @@
             // 
             // txtLeito
             // 
-            this.txtLeito.Location = new System.Drawing.Point(352, 142);
+            this.txtLeito.Location = new System.Drawing.Point(569, 82);
             this.txtLeito.Name = "txtLeito";
-            this.txtLeito.Size = new System.Drawing.Size(122, 20);
+            this.txtLeito.Size = new System.Drawing.Size(158, 20);
             this.txtLeito.TabIndex = 19;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(264, 120);
+            this.label11.Location = new System.Drawing.Point(260, 60);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(82, 13);
             this.label11.TabIndex = 20;
@@ -272,7 +279,7 @@
             // 
             // txtCentroCusto
             // 
-            this.txtCentroCusto.Location = new System.Drawing.Point(352, 116);
+            this.txtCentroCusto.Location = new System.Drawing.Point(348, 56);
             this.txtCentroCusto.Name = "txtCentroCusto";
             this.txtCentroCusto.ReadOnly = true;
             this.txtCentroCusto.Size = new System.Drawing.Size(122, 20);
@@ -281,7 +288,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(12, 172);
+            this.label12.Location = new System.Drawing.Point(8, 86);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(106, 13);
             this.label12.TabIndex = 22;
@@ -289,7 +296,7 @@
             // 
             // txtHipoteseDiagnostica
             // 
-            this.txtHipoteseDiagnostica.Location = new System.Drawing.Point(124, 169);
+            this.txtHipoteseDiagnostica.Location = new System.Drawing.Point(120, 82);
             this.txtHipoteseDiagnostica.Name = "txtHipoteseDiagnostica";
             this.txtHipoteseDiagnostica.Size = new System.Drawing.Size(350, 20);
             this.txtHipoteseDiagnostica.TabIndex = 23;
@@ -297,7 +304,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(12, 94);
+            this.label13.Location = new System.Drawing.Point(8, 34);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(42, 13);
             this.label13.TabIndex = 24;
@@ -305,15 +312,15 @@
             // 
             // txtMedico
             // 
-            this.txtMedico.Location = new System.Drawing.Point(93, 91);
+            this.txtMedico.Location = new System.Drawing.Point(120, 31);
             this.txtMedico.Name = "txtMedico";
-            this.txtMedico.Size = new System.Drawing.Size(165, 20);
+            this.txtMedico.Size = new System.Drawing.Size(134, 20);
             this.txtMedico.TabIndex = 25;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(264, 93);
+            this.label14.Location = new System.Drawing.Point(260, 33);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(31, 13);
             this.label14.TabIndex = 26;
@@ -321,14 +328,14 @@
             // 
             // txtCrm
             // 
-            this.txtCrm.Location = new System.Drawing.Point(352, 90);
+            this.txtCrm.Location = new System.Drawing.Point(348, 30);
             this.txtCrm.Name = "txtCrm";
             this.txtCrm.Size = new System.Drawing.Size(122, 20);
             this.txtCrm.TabIndex = 27;
             // 
             // txtDiagnostico
             // 
-            this.txtDiagnostico.Location = new System.Drawing.Point(124, 195);
+            this.txtDiagnostico.Location = new System.Drawing.Point(120, 108);
             this.txtDiagnostico.Name = "txtDiagnostico";
             this.txtDiagnostico.Size = new System.Drawing.Size(350, 20);
             this.txtDiagnostico.TabIndex = 28;
@@ -336,7 +343,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(12, 199);
+            this.label15.Location = new System.Drawing.Point(8, 112);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(63, 13);
             this.label15.TabIndex = 29;
@@ -345,7 +352,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(12, 224);
+            this.label16.Location = new System.Drawing.Point(496, 111);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(49, 13);
             this.label16.TabIndex = 30;
@@ -359,14 +366,15 @@
             "Internado",
             "Óbito",
             "Alta"});
-            this.cbxSituacao.Location = new System.Drawing.Point(124, 221);
+            this.cbxSituacao.Location = new System.Drawing.Point(569, 108);
             this.cbxSituacao.Name = "cbxSituacao";
-            this.cbxSituacao.Size = new System.Drawing.Size(121, 21);
+            this.cbxSituacao.Size = new System.Drawing.Size(119, 21);
             this.cbxSituacao.TabIndex = 31;
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(318, 221);
+            this.btnSalvar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSalvar.Location = new System.Drawing.Point(596, 304);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 21);
             this.btnSalvar.TabIndex = 33;
@@ -376,7 +384,8 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(399, 221);
+            this.btnExcluir.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnExcluir.Location = new System.Drawing.Point(677, 304);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 21);
             this.btnExcluir.TabIndex = 34;
@@ -389,8 +398,8 @@
             this.btnCarregarLocal.FlatAppearance.BorderSize = 0;
             this.btnCarregarLocal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCarregarLocal.Image = global::Registro_de_internacao.Properties.Resources.magnifying_glass_icon;
-            this.btnCarregarLocal.Location = new System.Drawing.Point(124, 36);
-            this.btnCarregarLocal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCarregarLocal.Location = new System.Drawing.Point(118, 56);
+            this.btnCarregarLocal.Margin = new System.Windows.Forms.Padding(2);
             this.btnCarregarLocal.Name = "btnCarregarLocal";
             this.btnCarregarLocal.Size = new System.Drawing.Size(24, 20);
             this.btnCarregarLocal.TabIndex = 32;
@@ -400,7 +409,7 @@
             // lblNomePaciente
             // 
             this.lblNomePaciente.AutoSize = true;
-            this.lblNomePaciente.Location = new System.Drawing.Point(153, 40);
+            this.lblNomePaciente.Location = new System.Drawing.Point(149, 33);
             this.lblNomePaciente.Name = "lblNomePaciente";
             this.lblNomePaciente.Size = new System.Drawing.Size(35, 13);
             this.lblNomePaciente.TabIndex = 35;
@@ -437,12 +446,12 @@
             this.colSituacao,
             this.colMae,
             this.colDataNasc});
-            this.dadosGrid.Location = new System.Drawing.Point(12, 248);
+            this.dadosGrid.Location = new System.Drawing.Point(12, 331);
             this.dadosGrid.Name = "dadosGrid";
             this.dadosGrid.ReadOnly = true;
             this.dadosGrid.RowHeadersWidth = 51;
             this.dadosGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dadosGrid.Size = new System.Drawing.Size(842, 225);
+            this.dadosGrid.Size = new System.Drawing.Size(740, 142);
             this.dadosGrid.TabIndex = 36;
             this.dadosGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dadosGrid_CellDoubleClick);
             // 
@@ -451,16 +460,94 @@
             this.btnCarregarCentroCusto.FlatAppearance.BorderSize = 0;
             this.btnCarregarCentroCusto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCarregarCentroCusto.Image = global::Registro_de_internacao.Properties.Resources.magnifying_glass_icon;
-            this.btnCarregarCentroCusto.Location = new System.Drawing.Point(478, 116);
-            this.btnCarregarCentroCusto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCarregarCentroCusto.Location = new System.Drawing.Point(474, 56);
+            this.btnCarregarCentroCusto.Margin = new System.Windows.Forms.Padding(2);
             this.btnCarregarCentroCusto.Name = "btnCarregarCentroCusto";
             this.btnCarregarCentroCusto.Size = new System.Drawing.Size(20, 19);
             this.btnCarregarCentroCusto.TabIndex = 37;
             this.btnCarregarCentroCusto.UseVisualStyleBackColor = true;
             this.btnCarregarCentroCusto.Click += new System.EventHandler(this.btnCarregarCentroCusto_Click);
             // 
+            // lblExibirIdade
+            // 
+            this.lblExibirIdade.AutoSize = true;
+            this.lblExibirIdade.Location = new System.Drawing.Point(149, 59);
+            this.lblExibirIdade.Name = "lblExibirIdade";
+            this.lblExibirIdade.Size = new System.Drawing.Size(34, 13);
+            this.lblExibirIdade.TabIndex = 38;
+            this.lblExibirIdade.Text = "Idade";
+            this.lblExibirIdade.Visible = false;
+            // 
+            // lblExibirMae
+            // 
+            this.lblExibirMae.AutoSize = true;
+            this.lblExibirMae.Location = new System.Drawing.Point(149, 85);
+            this.lblExibirMae.Name = "lblExibirMae";
+            this.lblExibirMae.Size = new System.Drawing.Size(28, 13);
+            this.lblExibirMae.TabIndex = 39;
+            this.lblExibirMae.Text = "Mãe";
+            this.lblExibirMae.Visible = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox1.Controls.Add(this.lblExibirMae);
+            this.groupBox1.Controls.Add(this.lblExibirIdade);
+            this.groupBox1.Controls.Add(this.lblNomePaciente);
+            this.groupBox1.Controls.Add(this.btnCarregarLocal);
+            this.groupBox1.Controls.Add(this.dtpHoraSaida);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.txtCns);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.dtpDataSaida);
+            this.groupBox1.Controls.Add(this.dtpHoraEntrada);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.dtpDataEntrada);
+            this.groupBox1.Controls.Add(this.txtProntuario);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtCodPaciente);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(740, 124);
+            this.groupBox1.TabIndex = 40;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Informações paciente";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox2.Controls.Add(this.btnCarregarCentroCusto);
+            this.groupBox2.Controls.Add(this.cbxSituacao);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.txtDiagnostico);
+            this.groupBox2.Controls.Add(this.txtCrm);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.txtMedico);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.txtHipoteseDiagnostica);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.txtCentroCusto);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.txtLeito);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.txtLocalizacao);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.txtClinicaMedica);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Location = new System.Drawing.Point(12, 142);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(740, 156);
+            this.groupBox2.TabIndex = 41;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Informações clinicas";
+            // 
             // colProntuario
             // 
+            this.colProntuario.FillWeight = 60F;
             this.colProntuario.HeaderText = "Código prontuário";
             this.colProntuario.MinimumWidth = 6;
             this.colProntuario.Name = "colProntuario";
@@ -609,51 +696,22 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 485);
-            this.Controls.Add(this.btnCarregarCentroCusto);
+            this.ClientSize = new System.Drawing.Size(764, 485);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dadosGrid);
-            this.Controls.Add(this.lblNomePaciente);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.btnCarregarLocal);
-            this.Controls.Add(this.cbxSituacao);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.txtDiagnostico);
-            this.Controls.Add(this.txtCrm);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.txtMedico);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.txtHipoteseDiagnostica);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.txtCentroCusto);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.txtLeito);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.txtLocalizacao);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtClinicaMedica);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.dtpHoraSaida);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtCns);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.dtpDataSaida);
-            this.Controls.Add(this.dtpHoraEntrada);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.dtpDataEntrada);
-            this.Controls.Add(this.txtProntuario);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtCodPaciente);
-            this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRegistroDeInternacao";
             this.Text = "Registro de Internação";
             this.Load += new System.EventHandler(this.FrmRegistroDeInternacao_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -697,6 +755,10 @@
         private System.Windows.Forms.Label lblNomePaciente;
         private System.Windows.Forms.DataGridView dadosGrid;
         private System.Windows.Forms.Button btnCarregarCentroCusto;
+        private System.Windows.Forms.Label lblExibirIdade;
+        private System.Windows.Forms.Label lblExibirMae;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProntuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCodPaciente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNomePaciente;

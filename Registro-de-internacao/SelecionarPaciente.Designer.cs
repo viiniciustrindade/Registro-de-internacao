@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelecionarPaciente));
             this.txtcodPaciente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNomePaciente = new System.Windows.Forms.TextBox();
@@ -192,6 +193,7 @@
             this.Controls.Add(this.txtNomePaciente);
             this.Controls.Add(this.txtNomeAutor);
             this.Controls.Add(this.dadosGrid4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SelecionarPaciente";
             this.Text = "Selecionar Paciente";
             this.Load += new System.EventHandler(this.SelecionarPaciente_Load);
