@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuscarCentroCusto));
             this.txtCodCentroCusto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCentroDeCusto = new System.Windows.Forms.TextBox();
@@ -40,35 +41,39 @@
             // 
             // txtCodCentroCusto
             // 
-            this.txtCodCentroCusto.Location = new System.Drawing.Point(117, 10);
+            this.txtCodCentroCusto.Location = new System.Drawing.Point(88, 8);
+            this.txtCodCentroCusto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCodCentroCusto.Name = "txtCodCentroCusto";
-            this.txtCodCentroCusto.Size = new System.Drawing.Size(63, 22);
+            this.txtCodCentroCusto.Size = new System.Drawing.Size(48, 20);
             this.txtCodCentroCusto.TabIndex = 42;
             this.txtCodCentroCusto.TextChanged += new System.EventHandler(this.txtCodCentroCusto_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 13);
+            this.label1.Location = new System.Drawing.Point(8, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 16);
+            this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 41;
             this.label1.Text = "Código";
             // 
             // txtCentroDeCusto
             // 
-            this.txtCentroDeCusto.Location = new System.Drawing.Point(117, 38);
+            this.txtCentroDeCusto.Location = new System.Drawing.Point(88, 31);
+            this.txtCentroDeCusto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCentroDeCusto.Name = "txtCentroDeCusto";
-            this.txtCentroDeCusto.Size = new System.Drawing.Size(259, 22);
+            this.txtCentroDeCusto.Size = new System.Drawing.Size(195, 20);
             this.txtCentroDeCusto.TabIndex = 40;
             this.txtCentroDeCusto.TextChanged += new System.EventHandler(this.txtCentroDeCusto_TextChanged);
             // 
             // txtNomeAutor
             // 
             this.txtNomeAutor.AutoSize = true;
-            this.txtNomeAutor.Location = new System.Drawing.Point(11, 41);
+            this.txtNomeAutor.Location = new System.Drawing.Point(8, 33);
+            this.txtNomeAutor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtNomeAutor.Name = "txtNomeAutor";
-            this.txtNomeAutor.Size = new System.Drawing.Size(100, 16);
+            this.txtNomeAutor.Size = new System.Drawing.Size(82, 13);
             this.txtNomeAutor.TabIndex = 39;
             this.txtNomeAutor.Text = "Centro de custo";
             // 
@@ -86,12 +91,13 @@
             this.colCodigoCentroCusto,
             this.colNomeCentroCusto});
             this.dadosGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dadosGrid.Location = new System.Drawing.Point(14, 66);
+            this.dadosGrid.Location = new System.Drawing.Point(10, 54);
+            this.dadosGrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dadosGrid.Name = "dadosGrid";
             this.dadosGrid.ReadOnly = true;
             this.dadosGrid.RowHeadersWidth = 51;
             this.dadosGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dadosGrid.Size = new System.Drawing.Size(571, 262);
+            this.dadosGrid.Size = new System.Drawing.Size(428, 213);
             this.dadosGrid.TabIndex = 38;
             this.dadosGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dadosGrid_CellDoubleClick);
             // 
@@ -103,7 +109,7 @@
             this.colCodigoCentroCusto.MinimumWidth = 6;
             this.colCodigoCentroCusto.Name = "colCodigoCentroCusto";
             this.colCodigoCentroCusto.ReadOnly = true;
-            this.colCodigoCentroCusto.Width = 80;
+            this.colCodigoCentroCusto.Width = 65;
             // 
             // colNomeCentroCusto
             // 
@@ -115,14 +121,16 @@
             // 
             // BuscarCentroCusto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 338);
+            this.ClientSize = new System.Drawing.Size(448, 275);
             this.Controls.Add(this.txtCodCentroCusto);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCentroDeCusto);
             this.Controls.Add(this.txtNomeAutor);
             this.Controls.Add(this.dadosGrid);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "BuscarCentroCusto";
             this.Text = "Selecionar Centro de Custo";
             this.Load += new System.EventHandler(this.BuscarCentroCusto_Load);
