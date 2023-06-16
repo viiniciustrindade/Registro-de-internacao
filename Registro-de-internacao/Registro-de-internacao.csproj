@@ -64,6 +64,8 @@
     </Compile>
     <Compile Include="InternacaoDAO.cs" />
     <Compile Include="InternacaoModel.cs" />
+    <Compile Include="MovimentacaoDAO.cs" />
+    <Compile Include="MovModel.cs" />
     <Compile Include="PacienteDAO.cs" />
     <Compile Include="PacienteModel.cs" />
     <Compile Include="Program.cs" />
@@ -108,6 +110,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\magnifying-glass-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seta-esquerda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-à-esquerda-dentro-de-um-círculo-16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

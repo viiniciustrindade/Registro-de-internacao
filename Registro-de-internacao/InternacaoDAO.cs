@@ -95,6 +95,29 @@ namespace Registro_de_internacao
                 }
             }
         }
+        public void AlterarCadastroPaciente(PacienteModel paciente, InternacaoModel internacao)
+        {
+            using (SqlCommand command = Connection.CreateCommand())
+            {
+                SqlTransaction t = Connection.BeginTransaction();
+                try
+                {
+                    StringBuilder sql = new StringBuilder();
+                    sql.AppendLine($"UPDATE mvtHospCadPac SET situacao = @situacao WHERE codPaciente = @codPaciente");
+                    command.CommandText = sql.ToString();
+                    command.Parameters.Add(new SqlParameter("@codPaciente", paciente.codPaciente));
+                    command.Parameters.Add(new SqlParameter("@situacao", internacao.situacao));
+                    command.Transaction = t;
+                    command.ExecuteNonQuery();
+                    t.Commit();
+                }
+                catch (Exception ex)
+                {
+                    t.Rollback();
+                    throw ex;
+                }
+            }
+        }
         public bool Validacoes(PacienteModel paciente, InternacaoModel internacao)
         {
             if (string.IsNullOrEmpty(paciente.codPaciente) || string.IsNullOrWhiteSpace(paciente.codPaciente))
@@ -171,6 +194,7 @@ namespace Registro_de_internacao
                 command.ExecuteNonQuery();
             }
         }
+
         public List<InternacaoModel> GetInternacoes()
         {
             List<InternacaoModel> internados = new List<InternacaoModel>();
@@ -181,7 +205,7 @@ namespace Registro_de_internacao
             " p.nomePaciente, p.nomeMaePaciente, p.dataNascPaciente"+
             " FROM mvtHospRegInt m "+
             "INNER JOIN mvtHospCadPac p ON m.codPaciente = p.codPaciente"+
-            " ORDER BY m.codProntuario ASC;");
+            " ORDER BY m.codProntuario DESC;");
             command.CommandText = sql.ToString();
             using (SqlDataReader dr = command.ExecuteReader())
             {

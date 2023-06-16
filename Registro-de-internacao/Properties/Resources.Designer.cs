@@ -63,9 +63,29 @@ namespace Registro_de_internacao.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_à_esquerda_dentro_de_um_círculo_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-à-esquerda-dentro-de-um-círculo-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap magnifying_glass_icon {
             get {
                 object obj = ResourceManager.GetObject("magnifying-glass-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap seta_esquerda {
+            get {
+                object obj = ResourceManager.GetObject("seta-esquerda", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

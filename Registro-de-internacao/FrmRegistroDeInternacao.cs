@@ -18,6 +18,7 @@ namespace Registro_de_internacao
             InitializeComponent();
             
         }
+        public string idade1 { get; private set; }
         public void AbrirSelecaoPaciente()
         { 
             SelecionarPaciente paciente = new SelecionarPaciente();
@@ -74,7 +75,27 @@ namespace Registro_de_internacao
                     row.Cells[colDiagnostico.Index].Value = internado.diagnostico;
                     row.Cells[colSituacao.Index].Value = internado.situacao;
                     row.Cells[colMae.Index].Value = internado.MaeModel.mae;
-                    row.Cells[colDataNasc.Index].Value = internado.DataNascModel.mae;
+                    row.Cells[colDataNasc.Index].Value = internado.DataNascModel.dataNasc;
+                }
+            }
+        }
+        private void CarregarMovimentacoesGrid()
+        {
+            dadosGrid2.Rows.Clear();
+            using (SqlConnection connection = DaoConnection.GetConexao())
+            {
+                MovimentacaoDAO dao = new MovimentacaoDAO(connection);
+                List<MovModel> movimentacoes = dao.GetMovimentacao(new InternacaoModel() { prontuario = txtProntuario.Text});
+                foreach (MovModel movimentacao in movimentacoes)
+                {
+                    DataGridViewRow row = dadosGrid2.Rows[dadosGrid2.Rows.Add()];
+                    row.Cells[colCodSequencia.Index].Value = movimentacao.codSequencia;
+                    row.Cells[colNomePaciente2.Index].Value = movimentacao.PacienteModel.nomePaciente;
+                    row.Cells[colDataMov.Index].Value = movimentacao.dataMov.ToString().Substring(0, 10);
+                    row.Cells[colHoraMov.Index].Value = movimentacao.horaMov;
+                    row.Cells[colMedicoResponsavel.Index].Value =movimentacao.medico;
+                    row.Cells[colMotivo.Index].Value = movimentacao.motivo;
+                    row.Cells[colCentroCusto.Index].Value = movimentacao.centroDeCusto;
                 }
             }
         }
@@ -85,6 +106,8 @@ namespace Registro_de_internacao
             LoadId();
             btnExcluir.Enabled = false;
             dtpHoraEntrada.Value = DateTime.Now;
+            cbxSituacao.Text = "Internado";
+
         }
         private void btnCarregarLocal_Click(object sender, EventArgs e)
         {
@@ -104,6 +127,28 @@ namespace Registro_de_internacao
             txtDiagnostico.Text = "";
             cbxSituacao.SelectedIndex = -1;
             dtpHoraEntrada.Value = DateTime.Now;
+            lblNomePaciente.Visible = false;
+            lblExibirMae.Visible = false;
+            lblExibirIdade.Visible = false;
+            cbxSituacao.Enabled = true;
+            txtLocalizacao.Enabled = true;
+            txtLeito.Enabled = true;
+            txtCentroCusto.Enabled = true;
+            btnCarregarCentroCusto.Enabled = true;
+            txtClinicaMedica.Enabled = true;
+            txtMedico.Enabled = true;
+            txtCrm.Enabled = true;
+            btnCarregarLocal.Enabled = true;
+            txtCns.Enabled = true;
+            dtpDataEntrada.Enabled = true;
+            dtpHoraEntrada.Enabled=true;
+            dtpDataSaida.Visible = false;
+            dtpHoraSaida.Visible = false;
+            label5.Visible = false;
+            label7.Visible = false;
+            txtHipoteseDiagnostica.Enabled = true;
+            txtDiagnostico.Enabled = true;
+            cbxSituacao.Text = "Internado";
         }
         private void LoadId()
         {
@@ -168,6 +213,14 @@ namespace Registro_de_internacao
                                 situacao = cbxSituacao.Text
 
                             });
+                            dao.AlterarCadastroPaciente(new PacienteModel()
+                            {
+                                codPaciente = txtCodPaciente.Text
+
+                            }, new InternacaoModel()
+                            {
+                                situacao = cbxSituacao.Text
+                            });
                             MessageBox.Show("Registro atualizado com sucesso!");
                             ApagarCampos();
                             CarregarUsuariosGrid();
@@ -195,9 +248,19 @@ namespace Registro_de_internacao
                                 situacao = cbxSituacao.Text
 
                             });
+                            dao.AlterarCadastroPaciente(new PacienteModel()
+                            {
+                                codPaciente = txtCodPaciente.Text
+
+                            }, new InternacaoModel()
+                            {
+                                situacao = cbxSituacao.Text
+                            });
                             MessageBox.Show("Registro salvo com sucesso!");
                             ApagarCampos();
                             CarregarUsuariosGrid();
+                            dadosGrid.Visible = true;
+                            dadosGrid2.Visible = false;
                         }
                     }
                     CarregarUsuariosGrid();
@@ -248,6 +311,8 @@ namespace Registro_de_internacao
                     LoadId();
                     btnExcluir.Enabled = true;
                     ApagarCampos();
+                    dadosGrid.Visible = true;
+                    dadosGrid2.Visible = false;
                 }
 
             }
@@ -277,32 +342,101 @@ namespace Registro_de_internacao
                 txtHipoteseDiagnostica.Text = dadosGrid.Rows[e.RowIndex].Cells[colHipoteseDiagnostica.Index].Value + "";
                 txtDiagnostico.Text = dadosGrid.Rows[e.RowIndex].Cells[colDiagnostico.Index].Value + "";
                 cbxSituacao.Text = dadosGrid.Rows[e.RowIndex].Cells[colSituacao.Index].Value + "";
-                //lblNomePaciente.Text = $"Nome: {dadosGrid.Rows[e.RowIndex].Cells[colNomePaciente.Index].Value + ""}, Mãe: {dadosGrid.Rows[e.RowIndex].Cells[colMae.Index].Value + ""}, " +
-                //    $"Idade: {} anos";
+                lblNomePaciente.Text = $"Nome: {dadosGrid.Rows[e.RowIndex].Cells[colNomePaciente.Index].Value + ""}";
+                lblExibirMae.Text = $"Mãe: { dadosGrid.Rows[e.RowIndex].Cells[colMae.Index].Value + ""}";
+                dtpDataNasc.Text = dadosGrid.Rows[e.RowIndex].Cells[colDataNasc.Index].Value + "";
+
+                lblNomePaciente.Visible = true;
+                lblExibirMae.Visible = true;
+                lblExibirIdade.Visible = true;
+
+                if (cbxSituacao.Text == "Internado")
+                {
+                    cbxSituacao.Enabled = false;
+                    txtLocalizacao.Enabled = false;
+                    txtLeito.Enabled = false;
+                    txtCentroCusto.Enabled = false;
+                    btnCarregarCentroCusto.Enabled = false;
+                    txtClinicaMedica.Enabled = false;
+                    txtMedico.Enabled = false;
+                    txtCrm.Enabled = false;
+                    txtCns.Enabled = false;
+                    dtpDataEntrada.Enabled = false;
+                    dtpHoraEntrada.Enabled = false;
+                    txtHipoteseDiagnostica.Enabled = false;
+                    txtDiagnostico.Enabled = true;
+                    dtpDataSaida.Visible = false;
+                    dtpHoraSaida.Visible = false;
+                    label5.Visible = false;
+                    label7.Visible = false;
+                }
+                else
+                {
+                    cbxSituacao.Enabled = false;
+                    txtLocalizacao.Enabled = false;
+                    txtLeito.Enabled = false;
+                    txtCentroCusto.Enabled = false;
+                    btnCarregarCentroCusto.Enabled = false;
+                    txtClinicaMedica.Enabled = false;
+                    txtMedico.Enabled = false;
+                    txtCrm.Enabled = false;
+                    txtCns.Enabled = false;
+                    dtpDataEntrada.Enabled = false;
+                    dtpHoraEntrada.Enabled = false;
+                    txtHipoteseDiagnostica.Enabled = false;
+                    txtDiagnostico.Enabled = false;
+                    dtpDataSaida.Visible = true;
+                    dtpHoraSaida.Visible = true;
+                    label5.Visible = true;
+                    label7.Visible = true;
+                }
+                CarregarMovimentacoesGrid();
+                btnVoltar.Enabled = true;
+                dadosGrid.Visible=false;
+                dadosGrid2.Visible = true;
+
                 if (string.IsNullOrEmpty(this.txtCodPaciente.Text))
                 {
                     btnExcluir.Enabled = false;
+                    btnCarregarLocal.Enabled = true;
 
                 }
                 else
                 {
                     btnExcluir.Enabled = true;
+                    btnCarregarLocal.Enabled = false;
                 }
             }
         }
-        //private int CalcularIdade(DateTime dataNascimento)
-        //{
-        //    DateTime dataAtual = DateTime.Today;
-        //    int idade = dataAtual.Year - dataNascimento.Year;
-        //    if (dataNascimento > dataAtual.AddYears(-idade))
-        //    {
-        //        idade--;
-        //    }
-        //    return idade;
-        //}
+        private int CalcularIdade(DateTime dataNascimento)
+        {
+            DateTime dataAtual = DateTime.Today;
+            int idade = dataAtual.Year - dataNascimento.Year;
+            if (dataNascimento > dataAtual.AddYears(-idade))
+            {
+                idade--;
+            }
+            return idade;
+        }
         private void btnCarregarCentroCusto_Click(object sender, EventArgs e)
         {
             AbrirSelecaoCentroCusto();
+        }
+
+        private void dtpDataNasc_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime dataNascimento = dtpDataNasc.Value;
+            int idade = CalcularIdade(dataNascimento);
+            lblExibirIdade.Text = idade.ToString();
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            ApagarCampos();
+            dadosGrid2.Visible = false;
+            dadosGrid.Visible = true;
+            btnVoltar.Enabled = false;
+            LoadId();
         }
     }
 }
