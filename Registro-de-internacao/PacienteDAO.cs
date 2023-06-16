@@ -20,7 +20,7 @@ namespace Registro_de_internacao
             using (SqlCommand command = Connection.CreateCommand())
             {
                 StringBuilder sql = new StringBuilder();
-                sql.AppendLine("SELECT PAC.codPaciente, PAC.nomePaciente, PAC.nomeMaePaciente, PAC.dataNascPaciente FROM mvtHospCadPac PAC");
+                sql.AppendLine("SELECT PAC.codPaciente, PAC.nomePaciente, PAC.nomeMaePaciente, PAC.dataNascPaciente FROM mvtHospCadPac PAC WHERE situacao = 'Vivo'");
                 command.CommandText = sql.ToString();
                 using (SqlDataReader dr = command.ExecuteReader())
                 {
