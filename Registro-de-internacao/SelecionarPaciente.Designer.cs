@@ -47,39 +47,37 @@
             // 
             // txtcodPaciente
             // 
-            this.txtcodPaciente.Location = new System.Drawing.Point(76, 11);
-            this.txtcodPaciente.Margin = new System.Windows.Forms.Padding(2);
+            this.txtcodPaciente.Location = new System.Drawing.Point(101, 14);
+            this.txtcodPaciente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtcodPaciente.Name = "txtcodPaciente";
-            this.txtcodPaciente.Size = new System.Drawing.Size(48, 20);
+            this.txtcodPaciente.Size = new System.Drawing.Size(63, 22);
             this.txtcodPaciente.TabIndex = 48;
             this.txtcodPaciente.TextChanged += new System.EventHandler(this.txtcodPaciente_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 14);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(17, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(51, 16);
             this.label1.TabIndex = 47;
             this.label1.Text = "Código";
             // 
             // txtNomePaciente
             // 
-            this.txtNomePaciente.Location = new System.Drawing.Point(76, 34);
-            this.txtNomePaciente.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNomePaciente.Location = new System.Drawing.Point(101, 42);
+            this.txtNomePaciente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNomePaciente.Name = "txtNomePaciente";
-            this.txtNomePaciente.Size = new System.Drawing.Size(192, 20);
+            this.txtNomePaciente.Size = new System.Drawing.Size(255, 22);
             this.txtNomePaciente.TabIndex = 46;
             this.txtNomePaciente.TextChanged += new System.EventHandler(this.txtNomePaciente_TextChanged);
             // 
             // txtNomeAutor
             // 
             this.txtNomeAutor.AutoSize = true;
-            this.txtNomeAutor.Location = new System.Drawing.Point(13, 37);
-            this.txtNomeAutor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.txtNomeAutor.Location = new System.Drawing.Point(17, 46);
             this.txtNomeAutor.Name = "txtNomeAutor";
-            this.txtNomeAutor.Size = new System.Drawing.Size(35, 13);
+            this.txtNomeAutor.Size = new System.Drawing.Size(44, 16);
             this.txtNomeAutor.TabIndex = 45;
             this.txtNomeAutor.Text = "Nome";
             // 
@@ -99,13 +97,13 @@
             this.colMaePaciente,
             this.colDataNasc});
             this.dadosGrid4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dadosGrid4.Location = new System.Drawing.Point(15, 121);
-            this.dadosGrid4.Margin = new System.Windows.Forms.Padding(2);
+            this.dadosGrid4.Location = new System.Drawing.Point(20, 68);
+            this.dadosGrid4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dadosGrid4.Name = "dadosGrid4";
             this.dadosGrid4.ReadOnly = true;
             this.dadosGrid4.RowHeadersWidth = 51;
             this.dadosGrid4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dadosGrid4.Size = new System.Drawing.Size(521, 222);
+            this.dadosGrid4.Size = new System.Drawing.Size(381, 177);
             this.dadosGrid4.TabIndex = 44;
             this.dadosGrid4.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dadosGrid4_CellDoubleClick);
             // 
@@ -117,7 +115,7 @@
             this.colCodigoPaciente.MinimumWidth = 6;
             this.colCodigoPaciente.Name = "colCodigoPaciente";
             this.colCodigoPaciente.ReadOnly = true;
-            this.colCodigoPaciente.Width = 65;
+            this.colCodigoPaciente.Width = 80;
             // 
             // colNomePaciente
             // 
@@ -130,12 +128,14 @@
             // colMaePaciente
             // 
             this.colMaePaciente.HeaderText = "Mãe";
+            this.colMaePaciente.MinimumWidth = 6;
             this.colMaePaciente.Name = "colMaePaciente";
             this.colMaePaciente.ReadOnly = true;
             // 
             // colDataNasc
             // 
             this.colDataNasc.HeaderText = "DataNascimento";
+            this.colDataNasc.MinimumWidth = 6;
             this.colDataNasc.Name = "colDataNasc";
             this.colDataNasc.ReadOnly = true;
             this.colDataNasc.Visible = false;
@@ -143,47 +143,50 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 61);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(17, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(28, 13);
+            this.label2.Size = new System.Drawing.Size(34, 16);
             this.label2.TabIndex = 49;
             this.label2.Text = "Mãe";
+            this.label2.Visible = false;
             // 
             // txtMae
             // 
             this.txtMae.Enabled = false;
-            this.txtMae.Location = new System.Drawing.Point(76, 58);
-            this.txtMae.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMae.Location = new System.Drawing.Point(101, 71);
+            this.txtMae.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMae.Name = "txtMae";
-            this.txtMae.Size = new System.Drawing.Size(192, 20);
+            this.txtMae.Size = new System.Drawing.Size(255, 22);
             this.txtMae.TabIndex = 50;
+            this.txtMae.Visible = false;
             // 
             // dtpDataNascimento
             // 
             this.dtpDataNascimento.Enabled = false;
             this.dtpDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataNascimento.Location = new System.Drawing.Point(120, 83);
+            this.dtpDataNascimento.Location = new System.Drawing.Point(160, 102);
+            this.dtpDataNascimento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpDataNascimento.Name = "dtpDataNascimento";
-            this.dtpDataNascimento.Size = new System.Drawing.Size(105, 20);
+            this.dtpDataNascimento.Size = new System.Drawing.Size(139, 22);
             this.dtpDataNascimento.TabIndex = 51;
+            this.dtpDataNascimento.Visible = false;
             this.dtpDataNascimento.ValueChanged += new System.EventHandler(this.dtpDataNascimento_ValueChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 86);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(17, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 13);
+            this.label3.Size = new System.Drawing.Size(127, 16);
             this.label3.TabIndex = 52;
             this.label3.Text = "Data de nascimento";
+            this.label3.Visible = false;
             // 
             // SelecionarPaciente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 354);
+            this.ClientSize = new System.Drawing.Size(415, 259);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtpDataNascimento);
             this.Controls.Add(this.txtMae);
@@ -194,6 +197,7 @@
             this.Controls.Add(this.txtNomeAutor);
             this.Controls.Add(this.dadosGrid4);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SelecionarPaciente";
             this.Text = "Selecionar Paciente";
             this.Load += new System.EventHandler(this.SelecionarPaciente_Load);

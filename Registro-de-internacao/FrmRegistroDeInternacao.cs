@@ -130,7 +130,7 @@ namespace Registro_de_internacao
             lblNomePaciente.Visible = false;
             lblExibirMae.Visible = false;
             lblExibirIdade.Visible = false;
-            cbxSituacao.Enabled = true;
+            cbxSituacao.Enabled = false;
             txtLocalizacao.Enabled = true;
             txtLeito.Enabled = true;
             txtCentroCusto.Enabled = true;
@@ -427,7 +427,7 @@ namespace Registro_de_internacao
         {
             DateTime dataNascimento = dtpDataNasc.Value;
             int idade = CalcularIdade(dataNascimento);
-            lblExibirIdade.Text = idade.ToString();
+            lblExibirIdade.Text = $"Idade: {idade.ToString()} anos";
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
