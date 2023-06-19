@@ -92,7 +92,6 @@
             this.btnCarregarCentroCusto = new System.Windows.Forms.Button();
             this.dtpDataNasc = new System.Windows.Forms.DateTimePicker();
             this.dadosGrid2 = new System.Windows.Forms.DataGridView();
-            this.btnVoltar = new System.Windows.Forms.Button();
             this.colCodSequencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNomePaciente2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDataMov = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,6 +99,7 @@
             this.colMedicoResponsavel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMotivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCentroCusto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnVoltar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -151,7 +151,7 @@
             this.dtpDataEntrada.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDataEntrada.Name = "dtpDataEntrada";
             this.dtpDataEntrada.Size = new System.Drawing.Size(128, 22);
-            this.dtpDataEntrada.TabIndex = 4;
+            this.dtpDataEntrada.TabIndex = 2;
             // 
             // label3
             // 
@@ -181,7 +181,7 @@
             this.dtpHoraEntrada.Name = "dtpHoraEntrada";
             this.dtpHoraEntrada.ShowUpDown = true;
             this.dtpHoraEntrada.Size = new System.Drawing.Size(100, 22);
-            this.dtpHoraEntrada.TabIndex = 7;
+            this.dtpHoraEntrada.TabIndex = 3;
             this.dtpHoraEntrada.Value = new System.DateTime(2023, 6, 14, 0, 0, 0, 0);
             // 
             // dtpDataSaida
@@ -223,7 +223,7 @@
             this.txtCns.Margin = new System.Windows.Forms.Padding(4);
             this.txtCns.Name = "txtCns";
             this.txtCns.Size = new System.Drawing.Size(99, 22);
-            this.txtCns.TabIndex = 11;
+            this.txtCns.TabIndex = 4;
             // 
             // dtpHoraSaida
             // 
@@ -265,7 +265,7 @@
             this.txtClinicaMedica.Margin = new System.Windows.Forms.Padding(4);
             this.txtClinicaMedica.Name = "txtClinicaMedica";
             this.txtClinicaMedica.Size = new System.Drawing.Size(177, 22);
-            this.txtClinicaMedica.TabIndex = 15;
+            this.txtClinicaMedica.TabIndex = 7;
             // 
             // label9
             // 
@@ -283,7 +283,7 @@
             this.txtLocalizacao.Margin = new System.Windows.Forms.Padding(4);
             this.txtLocalizacao.Name = "txtLocalizacao";
             this.txtLocalizacao.Size = new System.Drawing.Size(209, 22);
-            this.txtLocalizacao.TabIndex = 17;
+            this.txtLocalizacao.TabIndex = 9;
             // 
             // label10
             // 
@@ -301,7 +301,7 @@
             this.txtLeito.Margin = new System.Windows.Forms.Padding(4);
             this.txtLeito.Name = "txtLeito";
             this.txtLeito.Size = new System.Drawing.Size(209, 22);
-            this.txtLeito.TabIndex = 19;
+            this.txtLeito.TabIndex = 11;
             // 
             // label11
             // 
@@ -338,7 +338,7 @@
             this.txtHipoteseDiagnostica.Margin = new System.Windows.Forms.Padding(4);
             this.txtHipoteseDiagnostica.Name = "txtHipoteseDiagnostica";
             this.txtHipoteseDiagnostica.Size = new System.Drawing.Size(465, 22);
-            this.txtHipoteseDiagnostica.TabIndex = 23;
+            this.txtHipoteseDiagnostica.TabIndex = 10;
             // 
             // label13
             // 
@@ -352,11 +352,11 @@
             // 
             // txtMedico
             // 
-            this.txtMedico.Location = new System.Drawing.Point(160, 38);
+            this.txtMedico.Location = new System.Drawing.Point(160, 40);
             this.txtMedico.Margin = new System.Windows.Forms.Padding(4);
             this.txtMedico.Name = "txtMedico";
             this.txtMedico.Size = new System.Drawing.Size(177, 22);
-            this.txtMedico.TabIndex = 25;
+            this.txtMedico.TabIndex = 5;
             // 
             // label14
             // 
@@ -374,7 +374,7 @@
             this.txtCrm.Margin = new System.Windows.Forms.Padding(4);
             this.txtCrm.Name = "txtCrm";
             this.txtCrm.Size = new System.Drawing.Size(161, 22);
-            this.txtCrm.TabIndex = 27;
+            this.txtCrm.TabIndex = 6;
             // 
             // txtDiagnostico
             // 
@@ -382,7 +382,7 @@
             this.txtDiagnostico.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiagnostico.Name = "txtDiagnostico";
             this.txtDiagnostico.Size = new System.Drawing.Size(465, 22);
-            this.txtDiagnostico.TabIndex = 28;
+            this.txtDiagnostico.TabIndex = 12;
             // 
             // label15
             // 
@@ -414,7 +414,7 @@
             this.cbxSituacao.Margin = new System.Windows.Forms.Padding(4);
             this.cbxSituacao.Name = "cbxSituacao";
             this.cbxSituacao.Size = new System.Drawing.Size(157, 24);
-            this.cbxSituacao.TabIndex = 31;
+            this.cbxSituacao.TabIndex = 13;
             // 
             // btnSalvar
             // 
@@ -423,7 +423,7 @@
             this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(100, 26);
-            this.btnSalvar.TabIndex = 33;
+            this.btnSalvar.TabIndex = 14;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -435,7 +435,7 @@
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 26);
-            this.btnExcluir.TabIndex = 34;
+            this.btnExcluir.TabIndex = 15;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -703,7 +703,7 @@
             this.btnCarregarLocal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCarregarLocal.Name = "btnCarregarLocal";
             this.btnCarregarLocal.Size = new System.Drawing.Size(32, 25);
-            this.btnCarregarLocal.TabIndex = 32;
+            this.btnCarregarLocal.TabIndex = 1;
             this.btnCarregarLocal.UseVisualStyleBackColor = true;
             this.btnCarregarLocal.Click += new System.EventHandler(this.btnCarregarLocal_Click);
             // 
@@ -747,7 +747,7 @@
             this.btnCarregarCentroCusto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCarregarCentroCusto.Name = "btnCarregarCentroCusto";
             this.btnCarregarCentroCusto.Size = new System.Drawing.Size(27, 23);
-            this.btnCarregarCentroCusto.TabIndex = 37;
+            this.btnCarregarCentroCusto.TabIndex = 8;
             this.btnCarregarCentroCusto.UseVisualStyleBackColor = true;
             this.btnCarregarCentroCusto.Click += new System.EventHandler(this.btnCarregarCentroCusto_Click);
             // 
@@ -786,22 +786,8 @@
             this.dadosGrid2.RowHeadersWidth = 51;
             this.dadosGrid2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dadosGrid2.Size = new System.Drawing.Size(987, 175);
-            this.dadosGrid2.TabIndex = 43;
+            this.dadosGrid2.TabIndex = 16;
             this.dadosGrid2.Visible = false;
-            // 
-            // btnVoltar
-            // 
-            this.btnVoltar.Enabled = false;
-            this.btnVoltar.FlatAppearance.BorderSize = 0;
-            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVoltar.Image = global::Registro_de_internacao.Properties.Resources.icons8_à_esquerda_dentro_de_um_círculo_16;
-            this.btnVoltar.Location = new System.Drawing.Point(16, 370);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(43, 34);
-            this.btnVoltar.TabIndex = 44;
-            this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // colCodSequencia
             // 
@@ -858,6 +844,20 @@
             this.colCentroCusto.MinimumWidth = 6;
             this.colCentroCusto.Name = "colCentroCusto";
             this.colCentroCusto.ReadOnly = true;
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Enabled = false;
+            this.btnVoltar.FlatAppearance.BorderSize = 0;
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoltar.Image = global::Registro_de_internacao.Properties.Resources.icons8_à_esquerda_dentro_de_um_círculo_16;
+            this.btnVoltar.Location = new System.Drawing.Point(16, 370);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(43, 34);
+            this.btnVoltar.TabIndex = 44;
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // FrmRegistroDeInternacao
             // 
