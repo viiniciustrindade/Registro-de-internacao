@@ -199,8 +199,8 @@ namespace Registro_de_internacao
                                 prontuario = txtProntuario.Text,
                                 dataEntrada = dtpDataEntrada.Value.Date.ToString(),
                                 horaEntrada = dtpHoraEntrada.Value.ToString(),
-                                dataSaida = dtpDataSaida.Value.Date.ToString(),
-                                horaSaida = dtpHoraSaida.Value.ToString(),
+                                dataSaida = dtpDataEntrada.Value.Date.ToString(),
+                                horaSaida = dtpHoraEntrada.Value.ToString(),
                                 cns = txtCns.Text,
                                 clinicaMedica = txtClinicaMedica.Text,
                                 localizacao = txtLocalizacao.Text,
@@ -234,8 +234,8 @@ namespace Registro_de_internacao
                             {
                                 dataEntrada = dtpDataEntrada.Value.Date.ToString(),
                                 horaEntrada = dtpHoraEntrada.Value.ToString(),
-                                dataSaida = dtpDataSaida.Value.Date.ToString(),
-                                horaSaida = dtpHoraSaida.Value.ToString(),
+                                dataSaida = dtpDataEntrada.Value.Date.ToString(),
+                                horaSaida = dtpHoraEntrada.Value.ToString(),
                                 cns = txtCns.Text,
                                 clinicaMedica = txtClinicaMedica.Text,
                                 localizacao = txtLocalizacao.Text,
@@ -437,6 +437,7 @@ namespace Registro_de_internacao
             dadosGrid.Visible = true;
             btnVoltar.Enabled = false;
             LoadId();
+            btnExcluir.Enabled = false;
         }
     }
 }

@@ -188,6 +188,7 @@ namespace Registro_de_internacao
                     command.Transaction = t;
                 }
                 StringBuilder sql = new StringBuilder();
+                sql.AppendLine($"DELETE FROM mvtMovPac WHERE codProntuario = @codProntuario");
                 sql.AppendLine($"DELETE FROM mvtHospRegInt WHERE codProntuario = @codProntuario");
                 command.CommandText = sql.ToString();
                 command.Parameters.Add(new SqlParameter("@codProntuario", internacao.prontuario));
