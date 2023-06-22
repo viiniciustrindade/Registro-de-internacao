@@ -13,12 +13,50 @@ namespace Registro_de_internacao
 {
     public partial class FrmRegistroDeInternacao : Form
     {
-        public FrmRegistroDeInternacao()
+
+        string guardaPaciente { get; set; }
+        string guardaProntuario { get; set; }
+        string guardaNomePaciente { get; set; }
+        string guardaIdadePaciente { get; set; }
+        string guardaMaePaciente { get; set; }
+        string guardaLocalizacao { get; set; }
+        string guardaLeito { get; set; }
+        string guardaCentroCusto { get; set; }
+        string guardaClinicaMedica { get; set; }
+        string guardaMedico { get; set; }
+        string guardaCrm { get; set; }
+        public FrmRegistroDeInternacao(string GuardaId,string GuardaNome,string GuardaMae, string GuardaIdade)
         {
             InitializeComponent();
-            
+            txtCodPaciente.Text = GuardaId;
+            lblNomePaciente.Text = GuardaNome;
+            lblExibirMae.Text = GuardaMae;
+            lblExibirIdade.Text = GuardaIdade;
+
+            LabelVisivel();
         }
-        public string idade1 { get; private set; }
+        private void LabelVisivel()
+        {
+            if (lblNomePaciente.Text != "Nome")
+            {
+                lblNomePaciente.Visible = true;
+            }
+            if (lblExibirMae.Text != "Mãe")
+            {
+                lblExibirMae.Visible = true;
+            }
+            if (lblExibirIdade.Text != "Idade")
+            {
+                lblExibirIdade.Visible = true;
+            }
+            else
+            {
+                lblNomePaciente.Visible = false;
+                lblExibirMae.Visible = false;
+                lblExibirIdade.Visible = false;
+            }
+        }
+
         public void AbrirSelecaoPaciente()
         { 
             SelecionarPaciente paciente = new SelecionarPaciente();
@@ -346,6 +384,18 @@ namespace Registro_de_internacao
                 lblExibirMae.Text = $"Mãe: { dadosGrid.Rows[e.RowIndex].Cells[colMae.Index].Value + ""}";
                 dtpDataNasc.Text = dadosGrid.Rows[e.RowIndex].Cells[colDataNasc.Index].Value + "";
 
+                guardaPaciente = txtCodPaciente.Text;
+                guardaProntuario = txtProntuario.Text;
+                guardaNomePaciente = lblNomePaciente.Text;
+                guardaIdadePaciente = lblExibirIdade.Text;
+                guardaMaePaciente = lblExibirMae.Text;
+                guardaLocalizacao = txtLocalizacao.Text;
+                guardaLeito = txtLeito.Text;
+                guardaCentroCusto = txtCentroCusto.Text;
+                guardaClinicaMedica = txtClinicaMedica.Text;
+                guardaMedico = txtMedico.Text;
+                guardaCrm = txtCrm.Text;
+
                 lblNomePaciente.Visible = true;
                 lblExibirMae.Visible = true;
                 lblExibirIdade.Visible = true;
@@ -438,6 +488,14 @@ namespace Registro_de_internacao
             btnVoltar.Enabled = false;
             LoadId();
             btnExcluir.Enabled = false;
+        }
+
+        private void btnMovimentacao_Click(object sender, EventArgs e)
+        {
+            Movimentacao_pacientes.FrmMovimentacaoPaciente frmRegistroDeInternacao = new Movimentacao_pacientes.FrmMovimentacaoPaciente(guardaPaciente, guardaProntuario, guardaNomePaciente, guardaIdadePaciente, guardaMaePaciente, guardaLocalizacao,
+               guardaLeito, guardaCentroCusto, guardaClinicaMedica, guardaMedico, guardaCrm);
+            frmRegistroDeInternacao.ShowDialog();
+
         }
     }
 }

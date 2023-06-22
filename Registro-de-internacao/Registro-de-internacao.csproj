@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Movimentacao-pacientes">
+      <HintPath>..\..\movtech-Movimentacao-paciente\Movimentacao-pacientes\bin\Debug\Movimentacao-pacientes.exe</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
