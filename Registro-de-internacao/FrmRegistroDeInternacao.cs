@@ -396,6 +396,14 @@ namespace Registro_de_internacao
                 guardaMedico = txtMedico.Text;
                 guardaCrm = txtCrm.Text;
 
+                if (cbxSituacao.Text == "Internado"||cbxSituacao.Text == "Transferência")
+                { 
+                    btnMovimentacao.Enabled = true;
+                }
+                else
+                {
+                    btnMovimentacao.Enabled = false;
+                }
                 lblNomePaciente.Visible = true;
                 lblExibirMae.Visible = true;
                 lblExibirIdade.Visible = true;
@@ -488,12 +496,13 @@ namespace Registro_de_internacao
             btnVoltar.Enabled = false;
             LoadId();
             btnExcluir.Enabled = false;
+            btnMovimentacao.Enabled = false;
+            CarregarUsuariosGrid();
         }
 
         private void btnMovimentacao_Click(object sender, EventArgs e)
         {
-            Movimentacao_pacientes.FrmMovimentacaoPaciente frmRegistroDeInternacao = new Movimentacao_pacientes.FrmMovimentacaoPaciente(guardaPaciente, guardaProntuario, guardaNomePaciente, guardaIdadePaciente, guardaMaePaciente, guardaLocalizacao,
-               guardaLeito, guardaCentroCusto, guardaClinicaMedica, guardaMedico, guardaCrm);
+            Movimentacao_pacientes.FrmMovimentacaoPaciente frmRegistroDeInternacao = new Movimentacao_pacientes.FrmMovimentacaoPaciente(guardaPaciente, guardaProntuario, guardaNomePaciente, guardaIdadePaciente, guardaMaePaciente, guardaLocalizacao, guardaLeito, guardaCentroCusto, guardaClinicaMedica, guardaMedico, guardaCrm);
             frmRegistroDeInternacao.ShowDialog();
 
         }

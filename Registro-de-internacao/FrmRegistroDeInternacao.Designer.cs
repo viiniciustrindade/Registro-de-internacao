@@ -379,7 +379,10 @@
             this.cbxSituacao.Enabled = false;
             this.cbxSituacao.FormattingEnabled = true;
             this.cbxSituacao.Items.AddRange(new object[] {
-            "Internado"});
+            "Internado",
+            "Alta",
+            "Óbito",
+            "Evasão"});
             this.cbxSituacao.Location = new System.Drawing.Point(569, 108);
             this.cbxSituacao.Name = "cbxSituacao";
             this.cbxSituacao.Size = new System.Drawing.Size(119, 21);
@@ -660,7 +663,7 @@
             this.btnCarregarLocal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCarregarLocal.Image = global::Registro_de_internacao.Properties.Resources.magnifying_glass_icon;
             this.btnCarregarLocal.Location = new System.Drawing.Point(118, 56);
-            this.btnCarregarLocal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCarregarLocal.Margin = new System.Windows.Forms.Padding(2);
             this.btnCarregarLocal.Name = "btnCarregarLocal";
             this.btnCarregarLocal.Size = new System.Drawing.Size(24, 20);
             this.btnCarregarLocal.TabIndex = 1;
@@ -702,7 +705,7 @@
             this.btnCarregarCentroCusto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCarregarCentroCusto.Image = global::Registro_de_internacao.Properties.Resources.magnifying_glass_icon;
             this.btnCarregarCentroCusto.Location = new System.Drawing.Point(474, 56);
-            this.btnCarregarCentroCusto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCarregarCentroCusto.Margin = new System.Windows.Forms.Padding(2);
             this.btnCarregarCentroCusto.Name = "btnCarregarCentroCusto";
             this.btnCarregarCentroCusto.Size = new System.Drawing.Size(20, 19);
             this.btnCarregarCentroCusto.TabIndex = 8;
@@ -712,7 +715,7 @@
             // dtpDataNasc
             // 
             this.dtpDataNasc.Location = new System.Drawing.Point(735, -1);
-            this.dtpDataNasc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpDataNasc.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDataNasc.Name = "dtpDataNasc";
             this.dtpDataNasc.Size = new System.Drawing.Size(18, 20);
             this.dtpDataNasc.TabIndex = 42;
@@ -809,7 +812,7 @@
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Image = global::Registro_de_internacao.Properties.Resources.icons8_à_esquerda_dentro_de_um_círculo_16;
             this.btnVoltar.Location = new System.Drawing.Point(12, 301);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(32, 28);
             this.btnVoltar.TabIndex = 44;
@@ -819,6 +822,7 @@
             // btnMovimentacao
             // 
             this.btnMovimentacao.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnMovimentacao.Enabled = false;
             this.btnMovimentacao.Location = new System.Drawing.Point(661, 304);
             this.btnMovimentacao.Name = "btnMovimentacao";
             this.btnMovimentacao.Size = new System.Drawing.Size(91, 21);
