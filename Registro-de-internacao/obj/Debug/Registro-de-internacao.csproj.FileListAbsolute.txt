@@ -59,7 +59,7 @@ C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\movtech-Registro-internaca
 C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\movtech-Registro-internacao\Registro-de-internacao\obj\Debug\Registro-de-internacao.csproj.CoreCompileInputs.cache
 C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\movtech-Registro-internacao\Registro-de-internacao\obj\Debug\Registro-de-internacao.exe
 C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\movtech-Registro-internacao\Registro-de-internacao\obj\Debug\Registro-de-internacao.pdb
-C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\movtech-Registro-internacao\Registro-de-internacao\bin\Debug\Movimentacao-pacientes.exe
 C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\movtech-Registro-internacao\Registro-de-internacao\bin\Debug\Movimentacao-pacientes.pdb
 C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\movtech-Registro-internacao\Registro-de-internacao\bin\Debug\Movimentacao-pacientes.exe.config
 C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\movtech-Registro-internacao\Registro-de-internacao\obj\Debug\Registro-de-internacao.csproj.CopyComplete
+C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\movtech-Registro-internacao\Registro-de-internacao\bin\Debug\Movimentacao-pacientes.exe
